@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: simple-mnist
+spec:
+  template:
+    metadata:
+      name: simple-mnist
+    spec:
+      containers:
+      - name: tf-gpu-simple-mnist
+        image: esparig/ubuntu-tensorflow-gpu:1.0.0
+        command:
+         - "python3"
+         - "/opt/test-gpu-training/simple-mnist.py"
+      restartPolicy: Never

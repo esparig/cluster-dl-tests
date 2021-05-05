@@ -1,0 +1,31 @@
+# Ejemplo de Diana María Naranjo
+
+FROM ubuntu:16.04
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y build-essential cmake wget && \
+    apt-get install -y --no-install-recommends \
+        curl \
+        git \
+        python-setuptools \
+        python-pip \
+        build-essential \
+        python-dev \
+        python-wheel \
+        python-numpy \
+        python-scipy \
+        python-tk \
+        libglib2.0-0\
+        libsm6 \
+        libxext6 \
+        libxrender1
+RUN pip install --upgrade pip
+RUN pip install keras
+RUN pip install opencv-python
+RUN pip install -U matplotlib
+RUN pip install Pillow
+RUN pip install tensorflow==1.10
+COPY classifier.hdf5 /opt/image-classification-tf/classifier.hdf5
+COPY mean.npy /opt/image-classification-tf/mean.npy
+COPY std.npy /opt/image-classification-tf/std.npy
+COPY classify_video.py /opt/image-classification-tf/classify_video.py
