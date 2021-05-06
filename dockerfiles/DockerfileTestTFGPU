@@ -1,0 +1,9 @@
+# Dockerfile to test Tensorflow GPU
+#
+# 20210506 - Estibaliz Parcero
+
+FROM tensorflow/tensorflow:1.10.1-gpu-py3
+
+# Verify the tensorflow installation
+RUN python3 -c "import tensorflow as tf;print(tf.__version__)"
+RUN python3 -c "import tensorflow as tf;print(f'Default GPU Device:{tf.test.gpu_device_name()}')"
