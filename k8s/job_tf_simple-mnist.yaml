@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: simple-mnist
 spec:
+  backoffLimit: 2
   template:
     metadata:
       name: simple-mnist
