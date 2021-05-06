@@ -14,6 +14,6 @@ RUN pip3 install keras
 RUN pip3 install --upgrade tensorflow
 
 # Verify the tensorflow installation
-RUN python -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+RUN python3 -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 
 COPY scripts/simple-mnist.py /opt/test-gpu-training/simple-mnist.py
