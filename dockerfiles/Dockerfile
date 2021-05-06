@@ -14,6 +14,6 @@ RUN apt-get -y install python3
 RUN apt-get -y install python3-pip
 RUN pip3 install --upgrade pip
 RUN pip3 install keras
-RUN pip3 install --upgrade tensorflow-gpu==1.10.0
+RUN pip3 install --upgrade tensorflow
 
 COPY scripts/simple-mnist.py /opt/test-gpu-training/simple-mnist.py
