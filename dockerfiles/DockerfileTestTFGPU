@@ -4,6 +4,11 @@
 
 FROM tensorflow/tensorflow:1.10.1-gpu-py3
 
+# Install CUDA
+COPY cuda_9.0.176_384.81_linux.run ./
+RUN chmod +x cuda_9.0.176_384.81_linux.run
+RUN sh cuda_9.0.176_384.81_linux.run --silent --toolkit
+
 # Verify the tensorflow installation
 RUN python3 -c "import tensorflow as tf;print(tf.__version__)"
 RUN python3 -c "import tensorflow as tf;print(f'Default GPU Device:{tf.test.gpu_device_name()}')"
