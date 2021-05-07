@@ -1,0 +1,9 @@
+# Dockerfile to create a container for testing Tensorflow Models
+#
+# 20210507 - Estibaliz Parcero
+
+# https://hub.docker.com/r/tensorflow/tensorflow
+FROM tensorflow/tensorflow:latest-gpu
+
+# https://github.com/tensorflow/models/tree/master/official
+RUN pip install tf-models-official
