@@ -6,4 +6,4 @@
 FROM tensorflow/tensorflow:latest-gpu
 
 # https://github.com/tensorflow/models/tree/master/official
-RUN pip install tf-models-nightly
+RUN pip install tf-models-official
