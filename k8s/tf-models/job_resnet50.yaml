@@ -22,3 +22,4 @@ spec:
         --config_file=configs/examples/resnet/imagenet/gpu.yaml \
         --params_override='runtime.num_gpus=$NUM_GPUS'"]
       restartPolicy: Never
+#        --config_file=configs/experiments/image_classification/imagenet_resnet50_gpu.yaml \
