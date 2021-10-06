@@ -1,4 +1,4 @@
-name: Docker Image CI: TF+Resnet50+Imagenet
+name: Docker Image CI Resnet50 Imagenet
 
 on: [push]
 
