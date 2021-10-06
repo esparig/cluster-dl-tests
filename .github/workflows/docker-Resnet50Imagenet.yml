@@ -1,0 +1,19 @@
+name: Docker Image CI Resnet50 Imagenet
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: esparig/TF-Resnet50-Imagenet
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: dockerfiles/Dockerfile-Resnet50-Imagenet
