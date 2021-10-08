@@ -20,10 +20,6 @@ spec:
         volumeMounts:
         - name: data-volume
           mountPath: /data
-        resources:
-          limits:
-            memory: "5Gi"
-            cpu: "3"
       nodeSelector:
         kubernetes.io/hostname: vnode-1.localdomain
 
