@@ -1,0 +1,2153 @@
+2021-10-08 12:25:50.313406: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:50.374605: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:50.377657: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I1008 12:25:50.401480 140099672749888 train_utils.py:292] Final experiment parameters:
+{'runtime': {'all_reduce_alg': None,
+             'batchnorm_spatial_persistent': False,
+             'dataset_num_private_threads': None,
+             'default_shard_dim': -1,
+             'distribution_strategy': 'mirrored',
+             'enable_xla': False,
+             'gpu_thread_mode': None,
+             'loss_scale': 'dynamic',
+             'mixed_precision_dtype': 'float16',
+             'num_cores_per_replica': 1,
+             'num_gpus': 1,
+             'num_packs': 1,
+             'per_gpu_thread_count': 0,
+             'run_eagerly': False,
+             'task_index': -1,
+             'tpu': None,
+             'tpu_enable_xla_dynamic_padder': None,
+             'worker_hosts': None},
+ 'task': {'evaluation': {'top_k': 5},
+          'init_checkpoint': None,
+          'init_checkpoint_modules': 'all',
+          'losses': {'l2_weight_decay': 0.0001,
+                     'label_smoothing': 0.1,
+                     'one_hot': True},
+          'model': {'add_head_batch_norm': False,
+                    'backbone': {'resnet': {'depth_multiplier': 1.0,
+                                            'model_id': 50,
+                                            'replace_stem_max_pool': False,
+                                            'resnetd_shortcut': False,
+                                            'se_ratio': 0.0,
+                                            'stem_type': 'v0',
+                                            'stochastic_depth_drop_rate': 0.0},
+                                 'type': 'resnet'},
+                    'dropout_rate': 0.0,
+                    'input_size': [224, 224, 3],
+                    'norm_activation': {'activation': 'relu',
+                                        'norm_epsilon': 1e-05,
+                                        'norm_momentum': 0.9,
+                                        'use_sync_bn': False},
+                    'num_classes': 1001},
+          'model_output_keys': [],
+          'train_data': {'aug_policy': None,
+                         'aug_rand_hflip': True,
+                         'aug_type': None,
+                         'block_length': 1,
+                         'cache': False,
+                         'cycle_length': 10,
+                         'decode_jpeg_only': True,
+                         'deterministic': None,
+                         'drop_remainder': True,
+                         'dtype': 'float16',
+                         'enable_tf_data_service': False,
+                         'file_type': 'tfrecord',
+                         'global_batch_size': 256,
+                         'image_field_key': 'image/encoded',
+                         'input_path': '/data/imagenet/imagenet2012/5.1.0/train/train*',
+                         'is_multilabel': False,
+                         'is_training': True,
+                         'label_field_key': 'image/class/label',
+                         'randaug_magnitude': 10,
+                         'seed': None,
+                         'sharding': True,
+                         'shuffle_buffer_size': 10000,
+                         'tf_data_service_address': None,
+                         'tf_data_service_job_name': None,
+                         'tfds_as_supervised': False,
+                         'tfds_data_dir': '',
+                         'tfds_name': '',
+                         'tfds_skip_decoding_feature': '',
+                         'tfds_split': ''},
+          'validation_data': {'aug_policy': None,
+                              'aug_rand_hflip': True,
+                              'aug_type': None,
+                              'block_length': 1,
+                              'cache': False,
+                              'cycle_length': 10,
+                              'decode_jpeg_only': True,
+                              'deterministic': None,
+                              'drop_remainder': False,
+                              'dtype': 'float16',
+                              'enable_tf_data_service': False,
+                              'file_type': 'tfrecord',
+                              'global_batch_size': 256,
+                              'image_field_key': 'image/encoded',
+                              'input_path': '/data/imagenet/imagenet2012/5.1.0/train/valid*',
+                              'is_multilabel': False,
+                              'is_training': False,
+                              'label_field_key': 'image/class/label',
+                              'randaug_magnitude': 10,
+                              'seed': None,
+                              'sharding': True,
+                              'shuffle_buffer_size': 10000,
+                              'tf_data_service_address': None,
+                              'tf_data_service_job_name': None,
+                              'tfds_as_supervised': False,
+                              'tfds_data_dir': '',
+                              'tfds_name': '',
+                              'tfds_skip_decoding_feature': '',
+                              'tfds_split': ''}},
+ 'trainer': {'allow_tpu_summary': False,
+             'best_checkpoint_eval_metric': '',
+             'best_checkpoint_export_subdir': '',
+             'best_checkpoint_metric_comp': 'higher',
+             'checkpoint_interval': 625,
+             'continuous_eval_timeout': 3600,
+             'eval_tf_function': True,
+             'eval_tf_while_loop': False,
+             'loss_upper_bound': 1000000.0,
+             'max_to_keep': 5,
+             'optimizer_config': {'ema': None,
+                                  'learning_rate': {'stepwise': {'boundaries': [18750,
+                                                                                37500,
+                                                                                50000],
+                                                                 'name': 'PiecewiseConstantDecay',
+                                                                 'offset': 0,
+                                                                 'values': [0.8,
+                                                                            0.08,
+                                                                            0.008,
+                                                                            0.0008]},
+                                                    'type': 'stepwise'},
+                                  'optimizer': {'sgd': {'clipnorm': None,
+                                                        'clipvalue': None,
+                                                        'decay': 0.0,
+                                                        'global_clipnorm': None,
+                                                        'momentum': 0.9,
+                                                        'name': 'SGD',
+                                                        'nesterov': False},
+                                                'type': 'sgd'},
+                                  'warmup': {'linear': {'name': 'linear',
+                                                        'warmup_learning_rate': 0,
+                                                        'warmup_steps': 3125},
+                                             'type': 'linear'}},
+             'recovery_begin_steps': 0,
+             'recovery_max_trials': 0,
+             'steps_per_loop': 625,
+             'summary_interval': 625,
+             'train_steps': 56250,
+             'train_tf_function': True,
+             'train_tf_while_loop': True,
+             'validation_interval': 625,
+             'validation_steps': 25,
+             'validation_summary_subdir': 'validation'}}
+I1008 12:25:50.402564 140099672749888 train_utils.py:303] Saving experiment configuration to /data/model_checkpoints/params.yaml
+2021-10-08 12:25:50.412847: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+INFO:tensorflow:Mixed precision compatibility check (mixed_float16): OK
+Your GPU will likely run quickly with dtype policy mixed_float16 as it has compute capability of at least 7.0. Your GPU: Tesla V100-PCIE-32GB, compute capability 7.0
+I1008 12:25:50.414529 140099672749888 device_compatibility_check.py:121] Mixed precision compatibility check (mixed_float16): OK
+Your GPU will likely run quickly with dtype policy mixed_float16 as it has compute capability of at least 7.0. Your GPU: Tesla V100-PCIE-32GB, compute capability 7.0
+2021-10-08 12:25:50.415801: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-10-08 12:25:50.416475: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:50.417483: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:50.418436: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:52.890419: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:52.892296: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:52.893568: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-08 12:25:52.894780: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 30995 MB memory:  -> device: 0, name: Tesla V100-PCIE-32GB, pci bus id: 0000:00:09.0, compute capability: 7.0
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I1008 12:25:53.865852 140099672749888 mirrored_strategy.py:369] Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I1008 12:25:53.867830 140099672749888 train_utils.py:214] Running default trainer.
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:53.944796 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:53.949373 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:53.953734 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:53.955145 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:53.964550 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:53.968165 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:54.175746 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:54.176700 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:54.178186 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:54.178961 140099672749888 cross_device_ops.py:621] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I1008 12:25:57.537617 140099672749888 controller.py:391] restoring or initializing model...
+I1008 12:25:58.141809 140099672749888 controller.py:395] restored model from /data/model_checkpoints/ckpt-1875.
+I1008 12:25:58.141981 140099672749888 controller.py:217] restored from checkpoint: /data/model_checkpoints/ckpt-1875
+I1008 12:25:58.142031 140099672749888 train_lib.py:110] Starts to execute mode: train_and_eval
+I1008 12:25:58.142882 140099672749888 controller.py:236] train | step:   1875 | training until step 2500...
+2021-10-08 12:25:58.193701: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-10-08 12:26:23.870820: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 9387 of 10000
+2021-10-08 12:26:24.482320: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+2021-10-08 12:26:26.507804: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8100
+I1008 12:30:41.263547 140099672749888 controller.py:458] train | step:   2500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.065,
+     'learning_rate': 0.64000005,
+     'top_5_accuracy': 0.183325,
+     'training_loss': 6.286257}
+I1008 12:30:42.513455 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-2500.
+I1008 12:30:42.514619 140099672749888 controller.py:277]  eval | step:   2500 | running 25 steps of evaluation...
+I1008 12:30:58.602112 140099672749888 controller.py:290]  eval | step:   2500 | eval time:   16.1 sec | output: 
+    {'accuracy': 0.0603125,
+     'top_5_accuracy': 0.17109375,
+     'validation_loss': 6.7912292}
+I1008 12:30:58.608582 140099672749888 controller.py:236] train | step:   2500 | training until step 3125...
+I1008 12:35:09.388195 140099672749888 controller.py:458] train | step:   3125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.08599375,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.22549374,
+     'training_loss': 5.978663}
+I1008 12:35:10.737999 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-3125.
+I1008 12:35:10.751554 140099672749888 controller.py:277]  eval | step:   3125 | running 25 steps of evaluation...
+I1008 12:35:26.658932 140099672749888 controller.py:290]  eval | step:   3125 | eval time:   15.9 sec | output: {'accuracy': 0.074375, 'top_5_accuracy': 0.1925, 'validation_loss': 6.653987}
+I1008 12:35:26.667689 140099672749888 controller.py:236] train | step:   3125 | training until step 3750...
+I1008 12:39:26.287266 140099672749888 controller.py:458] train | step:   3750 | steps/sec:    2.4 | output: 
+    {'accuracy': 0.11079375,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.2712,
+     'training_loss': 5.7715564}
+I1008 12:39:27.458788 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-3750.
+I1008 12:39:27.460299 140099672749888 controller.py:277]  eval | step:   3750 | running 25 steps of evaluation...
+I1008 12:39:38.255305 140099672749888 controller.py:290]  eval | step:   3750 | eval time:   10.8 sec | output: 
+    {'accuracy': 0.0753125,
+     'top_5_accuracy': 0.203125,
+     'validation_loss': 6.7298555}
+I1008 12:39:38.261252 140099672749888 controller.py:236] train | step:   3750 | training until step 4375...
+I1008 12:43:37.755303 140099672749888 controller.py:458] train | step:   4375 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.13134375,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.30875,
+     'training_loss': 5.6363378}
+I1008 12:43:39.121134 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-4375.
+I1008 12:43:39.122717 140099672749888 controller.py:277]  eval | step:   4375 | running 25 steps of evaluation...
+I1008 12:43:49.242096 140099672749888 controller.py:290]  eval | step:   4375 | eval time:   10.1 sec | output: {'accuracy': 0.07, 'top_5_accuracy': 0.16125, 'validation_loss': 7.01728}
+I1008 12:43:49.248578 140099672749888 controller.py:236] train | step:   4375 | training until step 5000...
+I1008 12:48:28.565705 140099672749888 controller.py:458] train | step:   5000 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.1511875,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.34076875,
+     'training_loss': 5.555744}
+I1008 12:48:30.740266 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-5000.
+I1008 12:48:30.741785 140099672749888 controller.py:277]  eval | step:   5000 | running 25 steps of evaluation...
+I1008 12:48:50.261594 140099672749888 controller.py:290]  eval | step:   5000 | eval time:   19.5 sec | output: {'accuracy': 0.11921875, 'top_5_accuracy': 0.2725, 'validation_loss': 6.599878}
+I1008 12:48:50.266775 140099672749888 controller.py:236] train | step:   5000 | training until step 5625...
+I1008 12:52:49.848272 140099672749888 controller.py:458] train | step:   5625 | steps/sec:    2.4 | output: 
+    {'accuracy': 0.1680625,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.36863124,
+     'training_loss': 5.491147}
+I1008 12:52:51.431546 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-5625.
+I1008 12:52:51.433191 140099672749888 controller.py:277]  eval | step:   5625 | running 25 steps of evaluation...
+I1008 12:53:01.367042 140099672749888 controller.py:290]  eval | step:   5625 | eval time:    9.9 sec | output: 
+    {'accuracy': 0.0865625,
+     'top_5_accuracy': 0.2059375,
+     'validation_loss': 9.449079}
+I1008 12:53:01.373284 140099672749888 controller.py:236] train | step:   5625 | training until step 6250...
+I1008 12:57:00.940797 140099672749888 controller.py:458] train | step:   6250 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.18233125,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.3896125,
+     'training_loss': 5.449851}
+I1008 12:57:02.093516 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-6250.
+I1008 12:57:02.096252 140099672749888 controller.py:277]  eval | step:   6250 | running 25 steps of evaluation...
+I1008 12:57:11.982166 140099672749888 controller.py:290]  eval | step:   6250 | eval time:    9.9 sec | output: 
+    {'accuracy': 0.13546875,
+     'top_5_accuracy': 0.29640624,
+     'validation_loss': 6.579701}
+I1008 12:57:11.988300 140099672749888 controller.py:236] train | step:   6250 | training until step 6875...
+I1008 13:01:10.870521 140099672749888 controller.py:458] train | step:   6875 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.19548126,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4083,
+     'training_loss': 5.422308}
+I1008 13:01:11.906986 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-6875.
+I1008 13:01:11.908252 140099672749888 controller.py:277]  eval | step:   6875 | running 25 steps of evaluation...
+I1008 13:01:24.795460 140099672749888 controller.py:290]  eval | step:   6875 | eval time:   12.9 sec | output: 
+    {'accuracy': 0.1565625,
+     'top_5_accuracy': 0.32140625,
+     'validation_loss': 6.466958}
+I1008 13:01:24.805194 140099672749888 controller.py:236] train | step:   6875 | training until step 7500...
+I1008 13:05:24.502681 140099672749888 controller.py:458] train | step:   7500 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.204675,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.42389375,
+     'training_loss': 5.4009223}
+I1008 13:05:25.632356 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-7500.
+I1008 13:05:25.633850 140099672749888 controller.py:277]  eval | step:   7500 | running 25 steps of evaluation...
+I1008 13:05:36.047441 140099672749888 controller.py:290]  eval | step:   7500 | eval time:   10.4 sec | output: 
+    {'accuracy': 0.1390625,
+     'top_5_accuracy': 0.3140625,
+     'validation_loss': 6.549477}
+I1008 13:05:36.054008 140099672749888 controller.py:236] train | step:   7500 | training until step 8125...
+I1008 13:09:35.788146 140099672749888 controller.py:458] train | step:   8125 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.21486875,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4385375,
+     'training_loss': 5.370172}
+I1008 13:09:37.108079 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-8125.
+I1008 13:09:37.109390 140099672749888 controller.py:277]  eval | step:   8125 | running 25 steps of evaluation...
+I1008 13:09:46.866701 140099672749888 controller.py:290]  eval | step:   8125 | eval time:    9.8 sec | output: 
+    {'accuracy': 0.13171875,
+     'top_5_accuracy': 0.2853125,
+     'validation_loss': 6.7193336}
+I1008 13:09:46.874273 140099672749888 controller.py:236] train | step:   8125 | training until step 8750...
+I1008 13:13:59.141453 140099672749888 controller.py:458] train | step:   8750 | steps/sec:    2.4 | output: 
+    {'accuracy': 0.2235625,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.450325,
+     'training_loss': 5.3559194}
+I1008 13:14:00.872348 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-8750.
+I1008 13:14:00.873395 140099672749888 controller.py:277]  eval | step:   8750 | running 25 steps of evaluation...
+I1008 13:14:30.842815 140099672749888 controller.py:290]  eval | step:   8750 | eval time:   30.0 sec | output: 
+    {'accuracy': 0.17296875,
+     'top_5_accuracy': 0.36171874,
+     'validation_loss': 6.3338304}
+I1008 13:14:30.849522 140099672749888 controller.py:236] train | step:   8750 | training until step 9375...
+I1008 13:18:46.322829 140099672749888 controller.py:458] train | step:   9375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.23101875,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.46055624,
+     'training_loss': 5.3448877}
+I1008 13:18:49.453480 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-9375.
+I1008 13:18:49.455009 140099672749888 controller.py:277]  eval | step:   9375 | running 25 steps of evaluation...
+I1008 13:19:13.417372 140099672749888 controller.py:290]  eval | step:   9375 | eval time:   24.0 sec | output: {'accuracy': 0.14125, 'top_5_accuracy': 0.31359375, 'validation_loss': 6.541646}
+I1008 13:19:13.429397 140099672749888 controller.py:236] train | step:   9375 | training until step 10000...
+I1008 13:23:31.215986 140099672749888 controller.py:458] train | step:  10000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.23904376,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.47104374,
+     'training_loss': 5.3267684}
+I1008 13:23:35.275888 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-10000.
+I1008 13:23:35.277445 140099672749888 controller.py:277]  eval | step:  10000 | running 25 steps of evaluation...
+I1008 13:23:57.647396 140099672749888 controller.py:290]  eval | step:  10000 | eval time:   22.4 sec | output: 
+    {'accuracy': 0.17140625,
+     'top_5_accuracy': 0.35078126,
+     'validation_loss': 6.4766026}
+I1008 13:23:57.652724 140099672749888 controller.py:236] train | step:  10000 | training until step 10625...
+I1008 13:28:33.434772 140099672749888 controller.py:458] train | step:  10625 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.245975,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4819875,
+     'training_loss': 5.30677}
+I1008 13:28:36.995784 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-10625.
+I1008 13:28:36.997130 140099672749888 controller.py:277]  eval | step:  10625 | running 25 steps of evaluation...
+I1008 13:29:00.055280 140099672749888 controller.py:290]  eval | step:  10625 | eval time:   23.1 sec | output: 
+    {'accuracy': 0.15671875,
+     'top_5_accuracy': 0.330625,
+     'validation_loss': 6.5705485}
+I1008 13:29:00.065435 140099672749888 controller.py:236] train | step:  10625 | training until step 11250...
+I1008 13:33:13.806791 140099672749888 controller.py:458] train | step:  11250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.24891876,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.48280624,
+     'training_loss': 5.322091}
+I1008 13:33:16.842138 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-11250.
+I1008 13:33:16.843605 140099672749888 controller.py:277]  eval | step:  11250 | running 25 steps of evaluation...
+I1008 13:33:40.279440 140099672749888 controller.py:290]  eval | step:  11250 | eval time:   23.4 sec | output: 
+    {'accuracy': 0.1934375,
+     'top_5_accuracy': 0.38953125,
+     'validation_loss': 6.341437}
+I1008 13:33:40.291082 140099672749888 controller.py:236] train | step:  11250 | training until step 11875...
+I1008 13:38:28.859742 140099672749888 controller.py:458] train | step:  11875 | steps/sec:    2.0 | output: 
+    {'accuracy': 0.25484374,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4888,
+     'training_loss': 5.319328}
+I1008 13:38:32.041876 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-11875.
+I1008 13:38:32.043920 140099672749888 controller.py:277]  eval | step:  11875 | running 25 steps of evaluation...
+I1008 13:38:54.121336 140099672749888 controller.py:290]  eval | step:  11875 | eval time:   22.1 sec | output: 
+    {'accuracy': 0.17578125,
+     'top_5_accuracy': 0.3553125,
+     'validation_loss': 6.592417}
+I1008 13:38:54.128473 140099672749888 controller.py:236] train | step:  11875 | training until step 12500...
+I1008 13:43:15.076254 140099672749888 controller.py:458] train | step:  12500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.25723124,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.49366876,
+     'training_loss': 5.31784}
+I1008 13:43:18.877926 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-12500.
+I1008 13:43:18.879707 140099672749888 controller.py:277]  eval | step:  12500 | running 25 steps of evaluation...
+restoring or initializing model...
+restored model from /data/model_checkpoints/ckpt-1875.
+restored from checkpoint: /data/model_checkpoints/ckpt-1875
+train | step:   1875 | training until step 2500...
+train | step:   2500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.065,
+     'learning_rate': 0.64000005,
+     'top_5_accuracy': 0.183325,
+     'training_loss': 6.286257}
+saved checkpoint to /data/model_checkpoints/ckpt-2500.
+ eval | step:   2500 | running 25 steps of evaluation...
+ eval | step:   2500 | eval time:   16.1 sec | output: 
+    {'accuracy': 0.0603125,
+     'top_5_accuracy': 0.17109375,
+     'validation_loss': 6.7912292}
+train | step:   2500 | training until step 3125...
+train | step:   3125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.08599375,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.22549374,
+     'training_loss': 5.978663}
+saved checkpoint to /data/model_checkpoints/ckpt-3125.
+ eval | step:   3125 | running 25 steps of evaluation...
+ eval | step:   3125 | eval time:   15.9 sec | output: {'accuracy': 0.074375, 'top_5_accuracy': 0.1925, 'validation_loss': 6.653987}
+train | step:   3125 | training until step 3750...
+train | step:   3750 | steps/sec:    2.4 | output: 
+    {'accuracy': 0.11079375,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.2712,
+     'training_loss': 5.7715564}
+saved checkpoint to /data/model_checkpoints/ckpt-3750.
+ eval | step:   3750 | running 25 steps of evaluation...
+ eval | step:   3750 | eval time:   10.8 sec | output: 
+    {'accuracy': 0.0753125,
+     'top_5_accuracy': 0.203125,
+     'validation_loss': 6.7298555}
+train | step:   3750 | training until step 4375...
+train | step:   4375 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.13134375,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.30875,
+     'training_loss': 5.6363378}
+saved checkpoint to /data/model_checkpoints/ckpt-4375.
+ eval | step:   4375 | running 25 steps of evaluation...
+ eval | step:   4375 | eval time:   10.1 sec | output: {'accuracy': 0.07, 'top_5_accuracy': 0.16125, 'validation_loss': 7.01728}
+train | step:   4375 | training until step 5000...
+train | step:   5000 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.1511875,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.34076875,
+     'training_loss': 5.555744}
+saved checkpoint to /data/model_checkpoints/ckpt-5000.
+ eval | step:   5000 | running 25 steps of evaluation...
+ eval | step:   5000 | eval time:   19.5 sec | output: {'accuracy': 0.11921875, 'top_5_accuracy': 0.2725, 'validation_loss': 6.599878}
+train | step:   5000 | training until step 5625...
+train | step:   5625 | steps/sec:    2.4 | output: 
+    {'accuracy': 0.1680625,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.36863124,
+     'training_loss': 5.491147}
+saved checkpoint to /data/model_checkpoints/ckpt-5625.
+ eval | step:   5625 | running 25 steps of evaluation...
+ eval | step:   5625 | eval time:    9.9 sec | output: 
+    {'accuracy': 0.0865625,
+     'top_5_accuracy': 0.2059375,
+     'validation_loss': 9.449079}
+train | step:   5625 | training until step 6250...
+train | step:   6250 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.18233125,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.3896125,
+     'training_loss': 5.449851}
+saved checkpoint to /data/model_checkpoints/ckpt-6250.
+ eval | step:   6250 | running 25 steps of evaluation...
+ eval | step:   6250 | eval time:    9.9 sec | output: 
+    {'accuracy': 0.13546875,
+     'top_5_accuracy': 0.29640624,
+     'validation_loss': 6.579701}
+train | step:   6250 | training until step 6875...
+train | step:   6875 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.19548126,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4083,
+     'training_loss': 5.422308}
+saved checkpoint to /data/model_checkpoints/ckpt-6875.
+ eval | step:   6875 | running 25 steps of evaluation...
+ eval | step:   6875 | eval time:   12.9 sec | output: 
+    {'accuracy': 0.1565625,
+     'top_5_accuracy': 0.32140625,
+     'validation_loss': 6.466958}
+train | step:   6875 | training until step 7500...
+train | step:   7500 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.204675,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.42389375,
+     'training_loss': 5.4009223}
+saved checkpoint to /data/model_checkpoints/ckpt-7500.
+ eval | step:   7500 | running 25 steps of evaluation...
+ eval | step:   7500 | eval time:   10.4 sec | output: 
+    {'accuracy': 0.1390625,
+     'top_5_accuracy': 0.3140625,
+     'validation_loss': 6.549477}
+train | step:   7500 | training until step 8125...
+train | step:   8125 | steps/sec:    2.5 | output: 
+    {'accuracy': 0.21486875,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4385375,
+     'training_loss': 5.370172}
+saved checkpoint to /data/model_checkpoints/ckpt-8125.
+ eval | step:   8125 | running 25 steps of evaluation...
+ eval | step:   8125 | eval time:    9.8 sec | output: 
+    {'accuracy': 0.13171875,
+     'top_5_accuracy': 0.2853125,
+     'validation_loss': 6.7193336}
+train | step:   8125 | training until step 8750...
+train | step:   8750 | steps/sec:    2.4 | output: 
+    {'accuracy': 0.2235625,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.450325,
+     'training_loss': 5.3559194}
+saved checkpoint to /data/model_checkpoints/ckpt-8750.
+ eval | step:   8750 | running 25 steps of evaluation...
+ eval | step:   8750 | eval time:   30.0 sec | output: 
+    {'accuracy': 0.17296875,
+     'top_5_accuracy': 0.36171874,
+     'validation_loss': 6.3338304}
+train | step:   8750 | training until step 9375...
+train | step:   9375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.23101875,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.46055624,
+     'training_loss': 5.3448877}
+saved checkpoint to /data/model_checkpoints/ckpt-9375.
+ eval | step:   9375 | running 25 steps of evaluation...
+ eval | step:   9375 | eval time:   24.0 sec | output: {'accuracy': 0.14125, 'top_5_accuracy': 0.31359375, 'validation_loss': 6.541646}
+train | step:   9375 | training until step 10000...
+train | step:  10000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.23904376,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.47104374,
+     'training_loss': 5.3267684}
+saved checkpoint to /data/model_checkpoints/ckpt-10000.
+ eval | step:  10000 | running 25 steps of evaluation...
+ eval | step:  10000 | eval time:   22.4 sec | output: 
+    {'accuracy': 0.17140625,
+     'top_5_accuracy': 0.35078126,
+     'validation_loss': 6.4766026}
+train | step:  10000 | training until step 10625...
+train | step:  10625 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.245975,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4819875,
+     'training_loss': 5.30677}
+saved checkpoint to /data/model_checkpoints/ckpt-10625.
+ eval | step:  10625 | running 25 steps of evaluation...
+ eval | step:  10625 | eval time:   23.1 sec | output: 
+    {'accuracy': 0.15671875,
+     'top_5_accuracy': 0.330625,
+     'validation_loss': 6.5705485}
+train | step:  10625 | training until step 11250...
+train | step:  11250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.24891876,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.48280624,
+     'training_loss': 5.322091}
+saved checkpoint to /data/model_checkpoints/ckpt-11250.
+ eval | step:  11250 | running 25 steps of evaluation...
+ eval | step:  11250 | eval time:   23.4 sec | output: 
+    {'accuracy': 0.1934375,
+     'top_5_accuracy': 0.38953125,
+     'validation_loss': 6.341437}
+train | step:  11250 | training until step 11875...
+train | step:  11875 | steps/sec:    2.0 | output: 
+    {'accuracy': 0.25484374,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.4888,
+     'training_loss': 5.319328}
+saved checkpoint to /data/model_checkpoints/ckpt-11875.
+ eval | step:  11875 | running 25 steps of evaluation...
+ eval | step:  11875 | eval time:   22.1 sec | output: 
+    {'accuracy': 0.17578125,
+     'top_5_accuracy': 0.3553125,
+     'validation_loss': 6.592417}
+train | step:  11875 | training until step 12500...
+train | step:  12500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.25723124,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.49366876,
+     'training_loss': 5.31784}
+I1008 13:43:41.054276 140099672749888 controller.py:290]  eval | step:  12500 | eval time:   22.2 sec | output: {'accuracy': 0.205625, 'top_5_accuracy': 0.40171874, 'validation_loss': 6.37721}
+I1008 13:43:41.060037 140099672749888 controller.py:236] train | step:  12500 | training until step 13125...
+I1008 13:47:54.190418 140099672749888 controller.py:458] train | step:  13125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.2613625,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.498525,
+     'training_loss': 5.3084016}
+I1008 13:47:58.038292 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-13125.
+I1008 13:47:58.040365 140099672749888 controller.py:277]  eval | step:  13125 | running 25 steps of evaluation...
+I1008 13:48:19.567548 140099672749888 controller.py:290]  eval | step:  13125 | eval time:   21.5 sec | output: 
+    {'accuracy': 0.205625,
+     'top_5_accuracy': 0.40734375,
+     'validation_loss': 6.384225}
+I1008 13:48:19.597781 140099672749888 controller.py:236] train | step:  13125 | training until step 13750...
+I1008 13:52:33.508683 140099672749888 controller.py:458] train | step:  13750 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.26440626,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.50491875,
+     'training_loss': 5.298432}
+I1008 13:52:36.964762 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-13750.
+I1008 13:52:36.966763 140099672749888 controller.py:277]  eval | step:  13750 | running 25 steps of evaluation...
+I1008 13:53:00.339687 140099672749888 controller.py:290]  eval | step:  13750 | eval time:   23.4 sec | output: 
+    {'accuracy': 0.21484375,
+     'top_5_accuracy': 0.41578126,
+     'validation_loss': 6.4209843}
+I1008 13:53:00.346976 140099672749888 controller.py:236] train | step:  13750 | training until step 14375...
+I1008 13:57:13.542752 140099672749888 controller.py:458] train | step:  14375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.26960626,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51005,
+     'training_loss': 5.296706}
+I1008 13:57:17.031378 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-14375.
+I1008 13:57:17.032848 140099672749888 controller.py:277]  eval | step:  14375 | running 25 steps of evaluation...
+I1008 13:57:41.833081 140099672749888 controller.py:290]  eval | step:  14375 | eval time:   24.8 sec | output: 
+    {'accuracy': 0.17671876,
+     'top_5_accuracy': 0.36359376,
+     'validation_loss': 6.537463}
+I1008 13:57:41.848203 140099672749888 controller.py:236] train | step:  14375 | training until step 15000...
+I1008 14:02:02.263416 140099672749888 controller.py:458] train | step:  15000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.27039376,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51105624,
+     'training_loss': 5.3051634}
+I1008 14:02:06.693074 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-15000.
+I1008 14:02:06.695226 140099672749888 controller.py:277]  eval | step:  15000 | running 25 steps of evaluation...
+I1008 14:02:32.642953 140099672749888 controller.py:290]  eval | step:  15000 | eval time:   25.9 sec | output: {'accuracy': 0.1840625, 'top_5_accuracy': 0.38125, 'validation_loss': 6.5936046}
+I1008 14:02:32.669287 140099672749888 controller.py:236] train | step:  15000 | training until step 15625...
+I1008 14:06:52.003973 140099672749888 controller.py:458] train | step:  15625 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.27316874,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.515225,
+     'training_loss': 5.3007336}
+I1008 14:06:55.676142 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-15625.
+I1008 14:06:55.678112 140099672749888 controller.py:277]  eval | step:  15625 | running 25 steps of evaluation...
+I1008 14:07:18.126483 140099672749888 controller.py:290]  eval | step:  15625 | eval time:   22.4 sec | output: {'accuracy': 0.19453125, 'top_5_accuracy': 0.3875, 'validation_loss': 6.441903}
+I1008 14:07:18.157936 140099672749888 controller.py:236] train | step:  15625 | training until step 16250...
+I1008 14:11:30.641151 140099672749888 controller.py:458] train | step:  16250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.273325,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51461875,
+     'training_loss': 5.3064365}
+I1008 14:11:33.934813 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-16250.
+I1008 14:11:33.936215 140099672749888 controller.py:277]  eval | step:  16250 | running 25 steps of evaluation...
+I1008 14:11:56.045668 140099672749888 controller.py:290]  eval | step:  16250 | eval time:   22.1 sec | output: 
+    {'accuracy': 0.18234375,
+     'top_5_accuracy': 0.37484375,
+     'validation_loss': 6.4608717}
+I1008 14:11:56.061465 140099672749888 controller.py:236] train | step:  16250 | training until step 16875...
+I1008 14:16:09.466123 140099672749888 controller.py:458] train | step:  16875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.2785125,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.5209563,
+     'training_loss': 5.2928624}
+I1008 14:16:12.594066 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-16875.
+I1008 14:16:12.596484 140099672749888 controller.py:277]  eval | step:  16875 | running 25 steps of evaluation...
+I1008 14:16:34.499075 140099672749888 controller.py:290]  eval | step:  16875 | eval time:   21.9 sec | output: {'accuracy': 0.2171875, 'top_5_accuracy': 0.40625, 'validation_loss': 6.3853846}
+I1008 14:16:34.512880 140099672749888 controller.py:236] train | step:  16875 | training until step 17500...
+I1008 14:20:43.752115 140099672749888 controller.py:458] train | step:  17500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.27666876,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51870626,
+     'training_loss': 5.3035493}
+I1008 14:20:46.902141 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-17500.
+I1008 14:20:46.905804 140099672749888 controller.py:277]  eval | step:  17500 | running 25 steps of evaluation...
+I1008 14:21:09.134113 140099672749888 controller.py:290]  eval | step:  17500 | eval time:   22.2 sec | output: 
+    {'accuracy': 0.16984375,
+     'top_5_accuracy': 0.3453125,
+     'validation_loss': 6.6678677}
+I1008 14:21:09.149114 140099672749888 controller.py:236] train | step:  17500 | training until step 18125...
+I1008 14:25:18.765084 140099672749888 controller.py:458] train | step:  18125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.28229374,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.52585626,
+     'training_loss': 5.286136}
+I1008 14:25:23.321237 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-18125.
+I1008 14:25:23.322602 140099672749888 controller.py:277]  eval | step:  18125 | running 25 steps of evaluation...
+I1008 14:25:46.098772 140099672749888 controller.py:290]  eval | step:  18125 | eval time:   22.8 sec | output: 
+    {'accuracy': 0.21046875,
+     'top_5_accuracy': 0.40421876,
+     'validation_loss': 6.424061}
+I1008 14:25:46.110016 140099672749888 controller.py:236] train | step:  18125 | training until step 18750...
+I1008 14:30:11.284916 140099672749888 controller.py:458] train | step:  18750 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.28380626,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.5266875,
+     'training_loss': 5.292342}
+I1008 14:30:14.010438 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-18750.
+I1008 14:30:14.011821 140099672749888 controller.py:277]  eval | step:  18750 | running 25 steps of evaluation...
+I1008 14:30:35.961447 140099672749888 controller.py:290]  eval | step:  18750 | eval time:   21.9 sec | output: 
+    {'accuracy': 0.19578125,
+     'top_5_accuracy': 0.379375,
+     'validation_loss': 6.6276717}
+I1008 14:30:35.967813 140099672749888 controller.py:236] train | step:  18750 | training until step 19375...
+I1008 14:35:00.265851 140099672749888 controller.py:458] train | step:  19375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.373425,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.61929375,
+     'training_loss': 4.8149166}
+I1008 14:35:04.043344 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-19375.
+I1008 14:35:04.044732 140099672749888 controller.py:277]  eval | step:  19375 | running 25 steps of evaluation...
+I1008 14:35:28.406098 140099672749888 controller.py:290]  eval | step:  19375 | eval time:   24.4 sec | output: 
+    {'accuracy': 0.37546876,
+     'top_5_accuracy': 0.57453126,
+     'validation_loss': 5.6225977}
+I1008 14:35:28.413527 140099672749888 controller.py:236] train | step:  19375 | training until step 20000...
+I1008 14:39:38.842515 140099672749888 controller.py:458] train | step:  20000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4192125,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.6652875,
+     'training_loss': 4.5067825}
+I1008 14:39:42.202965 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-20000.
+I1008 14:39:42.206989 140099672749888 controller.py:277]  eval | step:  20000 | running 25 steps of evaluation...
+I1008 14:40:04.715248 140099672749888 controller.py:290]  eval | step:  20000 | eval time:   22.5 sec | output: 
+    {'accuracy': 0.3953125,
+     'top_5_accuracy': 0.5914062,
+     'validation_loss': 5.436452}
+I1008 14:40:04.722798 140099672749888 controller.py:236] train | step:  20000 | training until step 20625...
+I1008 14:44:12.240025 140099672749888 controller.py:458] train | step:  20625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.438775,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.68358123,
+     'training_loss': 4.3370643}
+I1008 14:44:15.492613 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-20625.
+I1008 14:44:15.493910 140099672749888 controller.py:277]  eval | step:  20625 | running 25 steps of evaluation...
+I1008 14:44:37.033187 140099672749888 controller.py:290]  eval | step:  20625 | eval time:   21.5 sec | output: 
+    {'accuracy': 0.40421876,
+     'top_5_accuracy': 0.59953123,
+     'validation_loss': 5.2947454}
+I1008 14:44:37.043579 140099672749888 controller.py:236] train | step:  20625 | training until step 21250...
+I1008 14:48:57.107148 140099672749888 controller.py:458] train | step:  21250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4459625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.69096875,
+     'training_loss': 4.2223635}
+I1008 14:49:00.929296 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-21250.
+I1008 14:49:00.930672 140099672749888 controller.py:277]  eval | step:  21250 | running 25 steps of evaluation...
+I1008 14:49:25.116745 140099672749888 controller.py:290]  eval | step:  21250 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.4121875,
+     'top_5_accuracy': 0.6053125,
+     'validation_loss': 5.1959667}
+I1008 14:49:25.128076 140099672749888 controller.py:236] train | step:  21250 | training until step 21875...
+I1008 14:53:37.575049 140099672749888 controller.py:458] train | step:  21875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.45426875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.6994875,
+     'training_loss': 4.120425}
+I1008 14:53:40.938070 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-21875.
+I1008 14:53:40.939935 140099672749888 controller.py:277]  eval | step:  21875 | running 25 steps of evaluation...
+I1008 14:54:06.114423 140099672749888 controller.py:290]  eval | step:  21875 | eval time:   25.2 sec | output: 
+    {'accuracy': 0.421875,
+     'top_5_accuracy': 0.61140627,
+     'validation_loss': 5.079218}
+I1008 14:54:06.121947 140099672749888 controller.py:236] train | step:  21875 | training until step 22500...
+I1008 14:58:16.875106 140099672749888 controller.py:458] train | step:  22500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4677125,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.71023124,
+     'training_loss': 4.0083413}
+I1008 14:58:20.589402 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-22500.
+I1008 14:58:20.590626 140099672749888 controller.py:277]  eval | step:  22500 | running 25 steps of evaluation...
+I1008 14:58:42.120376 140099672749888 controller.py:290]  eval | step:  22500 | eval time:   21.5 sec | output: {'accuracy': 0.409375, 'top_5_accuracy': 0.606875, 'validation_loss': 5.055418}
+I1008 14:58:42.129841 140099672749888 controller.py:236] train | step:  22500 | training until step 23125...
+I1008 15:02:56.064558 140099672749888 controller.py:458] train | step:  23125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4696375,
+     'learning_rate': 0.08,
+saved checkpoint to /data/model_checkpoints/ckpt-12500.
+     'top_5_accuracy': 0.7127563,
+     'training_loss': 3.9535024}
+ eval | step:  12500 | running 25 steps of evaluation...
+ eval | step:  12500 | eval time:   22.2 sec | output: {'accuracy': 0.205625, 'top_5_accuracy': 0.40171874, 'validation_loss': 6.37721}
+train | step:  12500 | training until step 13125...
+train | step:  13125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.2613625,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.498525,
+     'training_loss': 5.3084016}
+saved checkpoint to /data/model_checkpoints/ckpt-13125.
+ eval | step:  13125 | running 25 steps of evaluation...
+ eval | step:  13125 | eval time:   21.5 sec | output: 
+    {'accuracy': 0.205625,
+     'top_5_accuracy': 0.40734375,
+     'validation_loss': 6.384225}
+train | step:  13125 | training until step 13750...
+train | step:  13750 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.26440626,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.50491875,
+     'training_loss': 5.298432}
+saved checkpoint to /data/model_checkpoints/ckpt-13750.
+ eval | step:  13750 | running 25 steps of evaluation...
+ eval | step:  13750 | eval time:   23.4 sec | output: 
+    {'accuracy': 0.21484375,
+     'top_5_accuracy': 0.41578126,
+     'validation_loss': 6.4209843}
+train | step:  13750 | training until step 14375...
+train | step:  14375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.26960626,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51005,
+     'training_loss': 5.296706}
+saved checkpoint to /data/model_checkpoints/ckpt-14375.
+ eval | step:  14375 | running 25 steps of evaluation...
+ eval | step:  14375 | eval time:   24.8 sec | output: 
+    {'accuracy': 0.17671876,
+     'top_5_accuracy': 0.36359376,
+     'validation_loss': 6.537463}
+train | step:  14375 | training until step 15000...
+train | step:  15000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.27039376,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51105624,
+     'training_loss': 5.3051634}
+saved checkpoint to /data/model_checkpoints/ckpt-15000.
+ eval | step:  15000 | running 25 steps of evaluation...
+ eval | step:  15000 | eval time:   25.9 sec | output: {'accuracy': 0.1840625, 'top_5_accuracy': 0.38125, 'validation_loss': 6.5936046}
+train | step:  15000 | training until step 15625...
+train | step:  15625 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.27316874,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.515225,
+     'training_loss': 5.3007336}
+saved checkpoint to /data/model_checkpoints/ckpt-15625.
+ eval | step:  15625 | running 25 steps of evaluation...
+ eval | step:  15625 | eval time:   22.4 sec | output: {'accuracy': 0.19453125, 'top_5_accuracy': 0.3875, 'validation_loss': 6.441903}
+train | step:  15625 | training until step 16250...
+train | step:  16250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.273325,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51461875,
+     'training_loss': 5.3064365}
+saved checkpoint to /data/model_checkpoints/ckpt-16250.
+ eval | step:  16250 | running 25 steps of evaluation...
+ eval | step:  16250 | eval time:   22.1 sec | output: 
+    {'accuracy': 0.18234375,
+     'top_5_accuracy': 0.37484375,
+     'validation_loss': 6.4608717}
+train | step:  16250 | training until step 16875...
+train | step:  16875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.2785125,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.5209563,
+     'training_loss': 5.2928624}
+saved checkpoint to /data/model_checkpoints/ckpt-16875.
+ eval | step:  16875 | running 25 steps of evaluation...
+ eval | step:  16875 | eval time:   21.9 sec | output: {'accuracy': 0.2171875, 'top_5_accuracy': 0.40625, 'validation_loss': 6.3853846}
+train | step:  16875 | training until step 17500...
+train | step:  17500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.27666876,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.51870626,
+     'training_loss': 5.3035493}
+saved checkpoint to /data/model_checkpoints/ckpt-17500.
+ eval | step:  17500 | running 25 steps of evaluation...
+ eval | step:  17500 | eval time:   22.2 sec | output: 
+    {'accuracy': 0.16984375,
+     'top_5_accuracy': 0.3453125,
+     'validation_loss': 6.6678677}
+train | step:  17500 | training until step 18125...
+train | step:  18125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.28229374,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.52585626,
+     'training_loss': 5.286136}
+saved checkpoint to /data/model_checkpoints/ckpt-18125.
+ eval | step:  18125 | running 25 steps of evaluation...
+ eval | step:  18125 | eval time:   22.8 sec | output: 
+    {'accuracy': 0.21046875,
+     'top_5_accuracy': 0.40421876,
+     'validation_loss': 6.424061}
+train | step:  18125 | training until step 18750...
+train | step:  18750 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.28380626,
+     'learning_rate': 0.8,
+     'top_5_accuracy': 0.5266875,
+     'training_loss': 5.292342}
+saved checkpoint to /data/model_checkpoints/ckpt-18750.
+ eval | step:  18750 | running 25 steps of evaluation...
+ eval | step:  18750 | eval time:   21.9 sec | output: 
+    {'accuracy': 0.19578125,
+     'top_5_accuracy': 0.379375,
+     'validation_loss': 6.6276717}
+train | step:  18750 | training until step 19375...
+train | step:  19375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.373425,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.61929375,
+     'training_loss': 4.8149166}
+saved checkpoint to /data/model_checkpoints/ckpt-19375.
+ eval | step:  19375 | running 25 steps of evaluation...
+ eval | step:  19375 | eval time:   24.4 sec | output: 
+    {'accuracy': 0.37546876,
+     'top_5_accuracy': 0.57453126,
+     'validation_loss': 5.6225977}
+train | step:  19375 | training until step 20000...
+train | step:  20000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4192125,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.6652875,
+     'training_loss': 4.5067825}
+saved checkpoint to /data/model_checkpoints/ckpt-20000.
+ eval | step:  20000 | running 25 steps of evaluation...
+ eval | step:  20000 | eval time:   22.5 sec | output: 
+    {'accuracy': 0.3953125,
+     'top_5_accuracy': 0.5914062,
+     'validation_loss': 5.436452}
+train | step:  20000 | training until step 20625...
+train | step:  20625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.438775,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.68358123,
+     'training_loss': 4.3370643}
+saved checkpoint to /data/model_checkpoints/ckpt-20625.
+ eval | step:  20625 | running 25 steps of evaluation...
+ eval | step:  20625 | eval time:   21.5 sec | output: 
+    {'accuracy': 0.40421876,
+     'top_5_accuracy': 0.59953123,
+     'validation_loss': 5.2947454}
+train | step:  20625 | training until step 21250...
+train | step:  21250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4459625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.69096875,
+     'training_loss': 4.2223635}
+saved checkpoint to /data/model_checkpoints/ckpt-21250.
+ eval | step:  21250 | running 25 steps of evaluation...
+ eval | step:  21250 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.4121875,
+     'top_5_accuracy': 0.6053125,
+     'validation_loss': 5.1959667}
+train | step:  21250 | training until step 21875...
+train | step:  21875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.45426875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.6994875,
+     'training_loss': 4.120425}
+saved checkpoint to /data/model_checkpoints/ckpt-21875.
+ eval | step:  21875 | running 25 steps of evaluation...
+ eval | step:  21875 | eval time:   25.2 sec | output: 
+    {'accuracy': 0.421875,
+     'top_5_accuracy': 0.61140627,
+     'validation_loss': 5.079218}
+train | step:  21875 | training until step 22500...
+train | step:  22500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4677125,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.71023124,
+     'training_loss': 4.0083413}
+saved checkpoint to /data/model_checkpoints/ckpt-22500.
+ eval | step:  22500 | running 25 steps of evaluation...
+ eval | step:  22500 | eval time:   21.5 sec | output: {'accuracy': 0.409375, 'top_5_accuracy': 0.606875, 'validation_loss': 5.055418}
+train | step:  22500 | training until step 23125...
+train | step:  23125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4696375,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7127563,
+I1008 15:02:59.540186 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-23125.
+I1008 15:02:59.541467 140099672749888 controller.py:277]  eval | step:  23125 | running 25 steps of evaluation...
+I1008 15:03:23.489640 140099672749888 controller.py:290]  eval | step:  23125 | eval time:   23.9 sec | output: {'accuracy': 0.42859375, 'top_5_accuracy': 0.6175, 'validation_loss': 4.9708247}
+I1008 15:03:23.497131 140099672749888 controller.py:236] train | step:  23125 | training until step 23750...
+I1008 15:07:51.152250 140099672749888 controller.py:458] train | step:  23750 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.4736,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.71525,
+     'training_loss': 3.8986351}
+I1008 15:07:53.816860 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-23750.
+I1008 15:07:53.818994 140099672749888 controller.py:277]  eval | step:  23750 | running 25 steps of evaluation...
+I1008 15:08:16.464207 140099672749888 controller.py:290]  eval | step:  23750 | eval time:   22.6 sec | output: {'accuracy': 0.4225, 'top_5_accuracy': 0.6145313, 'validation_loss': 4.9206924}
+I1008 15:08:16.471455 140099672749888 controller.py:236] train | step:  23750 | training until step 24375...
+I1008 15:12:39.853340 140099672749888 controller.py:458] train | step:  24375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4742625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7161875,
+     'training_loss': 3.8619406}
+I1008 15:12:43.613833 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-24375.
+I1008 15:12:43.615131 140099672749888 controller.py:277]  eval | step:  24375 | running 25 steps of evaluation...
+I1008 15:13:05.584470 140099672749888 controller.py:290]  eval | step:  24375 | eval time:   22.0 sec | output: 
+    {'accuracy': 0.41125,
+     'top_5_accuracy': 0.60765624,
+     'validation_loss': 4.8887296}
+I1008 15:13:05.593860 140099672749888 controller.py:236] train | step:  24375 | training until step 25000...
+I1008 15:17:36.001082 140099672749888 controller.py:458] train | step:  25000 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.47550625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7151875,
+     'training_loss': 3.8362617}
+I1008 15:17:39.282555 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-25000.
+I1008 15:17:39.283884 140099672749888 controller.py:277]  eval | step:  25000 | running 25 steps of evaluation...
+I1008 15:17:59.893246 140099672749888 controller.py:290]  eval | step:  25000 | eval time:   20.6 sec | output: 
+    {'accuracy': 0.43484375,
+     'top_5_accuracy': 0.625625,
+     'validation_loss': 4.8284326}
+I1008 15:17:59.900697 140099672749888 controller.py:236] train | step:  25000 | training until step 25625...
+I1008 15:22:10.215743 140099672749888 controller.py:458] train | step:  25625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.47703126,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.718225,
+     'training_loss': 3.803061}
+I1008 15:22:13.697949 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-25625.
+I1008 15:22:13.699513 140099672749888 controller.py:277]  eval | step:  25625 | running 25 steps of evaluation...
+I1008 15:22:37.029722 140099672749888 controller.py:290]  eval | step:  25625 | eval time:   23.3 sec | output: 
+    {'accuracy': 0.4278125,
+     'top_5_accuracy': 0.6240625,
+     'validation_loss': 4.8041425}
+I1008 15:22:37.039985 140099672749888 controller.py:236] train | step:  25625 | training until step 26250...
+I1008 15:26:51.095641 140099672749888 controller.py:458] train | step:  26250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.484325,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.725075,
+     'training_loss': 3.7472937}
+I1008 15:26:53.908758 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-26250.
+I1008 15:26:53.909971 140099672749888 controller.py:277]  eval | step:  26250 | running 25 steps of evaluation...
+I1008 15:27:18.067067 140099672749888 controller.py:290]  eval | step:  26250 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.4365625,
+     'top_5_accuracy': 0.625625,
+     'validation_loss': 4.7440815}
+I1008 15:27:18.083391 140099672749888 controller.py:236] train | step:  26250 | training until step 26875...
+I1008 15:31:20.120985 140099672749888 controller.py:458] train | step:  26875 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4807125,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.723725,
+     'training_loss': 3.740839}
+I1008 15:31:23.497713 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-26875.
+I1008 15:31:23.499097 140099672749888 controller.py:277]  eval | step:  26875 | running 25 steps of evaluation...
+I1008 15:31:43.874162 140099672749888 controller.py:290]  eval | step:  26875 | eval time:   20.4 sec | output: {'accuracy': 0.415, 'top_5_accuracy': 0.611875, 'validation_loss': 4.829971}
+I1008 15:31:43.890519 140099672749888 controller.py:236] train | step:  26875 | training until step 27500...
+I1008 15:35:54.018770 140099672749888 controller.py:458] train | step:  27500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4818375,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7239875,
+     'training_loss': 3.7313378}
+I1008 15:35:56.736539 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-27500.
+I1008 15:35:56.738226 140099672749888 controller.py:277]  eval | step:  27500 | running 25 steps of evaluation...
+I1008 15:36:20.539652 140099672749888 controller.py:290]  eval | step:  27500 | eval time:   23.8 sec | output: 
+    {'accuracy': 0.42203125,
+     'top_5_accuracy': 0.6120312,
+     'validation_loss': 4.7812376}
+I1008 15:36:20.551726 140099672749888 controller.py:236] train | step:  27500 | training until step 28125...
+I1008 15:40:32.871671 140099672749888 controller.py:458] train | step:  28125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4815875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7239625,
+     'training_loss': 3.7235918}
+I1008 15:40:36.585398 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-28125.
+I1008 15:40:36.587034 140099672749888 controller.py:277]  eval | step:  28125 | running 25 steps of evaluation...
+I1008 15:40:59.100900 140099672749888 controller.py:290]  eval | step:  28125 | eval time:   22.5 sec | output: 
+    {'accuracy': 0.4196875,
+     'top_5_accuracy': 0.6096875,
+     'validation_loss': 4.7926736}
+I1008 15:40:59.118759 140099672749888 controller.py:236] train | step:  28125 | training until step 28750...
+I1008 15:45:08.538359 140099672749888 controller.py:458] train | step:  28750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.483525,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7243937,
+     'training_loss': 3.7103374}
+I1008 15:45:12.004315 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-28750.
+I1008 15:45:12.005612 140099672749888 controller.py:277]  eval | step:  28750 | running 25 steps of evaluation...
+I1008 15:45:33.985304 140099672749888 controller.py:290]  eval | step:  28750 | eval time:   22.0 sec | output: 
+    {'accuracy': 0.4084375,
+     'top_5_accuracy': 0.6015625,
+     'validation_loss': 4.7745104}
+I1008 15:45:34.005341 140099672749888 controller.py:236] train | step:  28750 | training until step 29375...
+I1008 15:49:40.393655 140099672749888 controller.py:458] train | step:  29375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.48330626,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7253,
+     'training_loss': 3.705296}
+I1008 15:49:43.817278 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-29375.
+I1008 15:49:43.818697 140099672749888 controller.py:277]  eval | step:  29375 | running 25 steps of evaluation...
+I1008 15:50:05.384569 140099672749888 controller.py:290]  eval | step:  29375 | eval time:   21.6 sec | output: 
+    {'accuracy': 0.4334375,
+     'top_5_accuracy': 0.62078124,
+     'validation_loss': 4.680121}
+I1008 15:50:05.393558 140099672749888 controller.py:236] train | step:  29375 | training until step 30000...
+I1008 15:54:37.365161 140099672749888 controller.py:458] train | step:  30000 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.4848875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.72813123,
+     'training_loss': 3.6901429}
+I1008 15:54:40.429404 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-30000.
+I1008 15:54:40.431350 140099672749888 controller.py:277]  eval | step:  30000 | running 25 steps of evaluation...
+I1008 15:55:06.341771 140099672749888 controller.py:290]  eval | step:  30000 | eval time:   25.9 sec | output: 
+    {'accuracy': 0.42828125,
+     'top_5_accuracy': 0.625625,
+     'validation_loss': 4.7117248}
+I1008 15:55:06.357055 140099672749888 controller.py:236] train | step:  30000 | training until step 30625...
+I1008 15:59:18.217665 140099672749888 controller.py:458] train | step:  30625 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4913625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7332,
+     'training_loss': 3.6563609}
+I1008 15:59:21.412369 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-30625.
+I1008 15:59:21.416072 140099672749888 controller.py:277]  eval | step:  30625 | running 25 steps of evaluation...
+I1008 15:59:42.127786 140099672749888 controller.py:290]  eval | step:  30625 | eval time:   20.7 sec | output: {'accuracy': 0.4153125, 'top_5_accuracy': 0.61, 'validation_loss': 4.772459}
+I1008 15:59:42.137949 140099672749888 controller.py:236] train | step:  30625 | training until step 31250...
+I1008 16:03:57.458415 140099672749888 controller.py:458] train | step:  31250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.48865625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.73025626,
+     'training_loss': 3.6680942}
+I1008 16:04:01.347852 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-31250.
+I1008 16:04:01.349097 140099672749888 controller.py:277]  eval | step:  31250 | running 25 steps of evaluation...
+I1008 16:04:25.544175 140099672749888 controller.py:290]  eval | step:  31250 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.42515624,
+     'top_5_accuracy': 0.619375,
+     'validation_loss': 4.6912184}
+I1008 16:04:25.570070 140099672749888 controller.py:236] train | step:  31250 | training until step 31875...
+I1008 16:08:41.645580 140099672749888 controller.py:458] train | step:  31875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4892625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7313875,
+     'training_loss': 3.666026}
+I1008 16:08:44.412756 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-31875.
+I1008 16:08:44.414265 140099672749888 controller.py:277]  eval | step:  31875 | running 25 steps of evaluation...
+I1008 16:09:11.317540 140099672749888 controller.py:290]  eval | step:  31875 | eval time:   26.9 sec | output: 
+    {'accuracy': 0.43671876,
+     'top_5_accuracy': 0.62421876,
+     'validation_loss': 4.7100945}
+I1008 16:09:11.326758 140099672749888 controller.py:236] train | step:  31875 | training until step 32500...
+I1008 16:13:26.234261 140099672749888 controller.py:458] train | step:  32500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4881,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.72995,
+     'training_loss': 3.6741073}
+I1008 16:13:29.272002 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-32500.
+I1008 16:13:29.273461 140099672749888 controller.py:277]  eval | step:  32500 | running 25 steps of evaluation...
+I1008 16:13:50.867086 140099672749888 controller.py:290]  eval | step:  32500 | eval time:   21.6 sec | output: 
+    {'accuracy': 0.4209375,
+     'top_5_accuracy': 0.60828125,
+     'validation_loss': 4.795967}
+I1008 16:13:50.875015 140099672749888 controller.py:236] train | step:  32500 | training until step 33125...
+I1008 16:18:04.865648 140099672749888 controller.py:458] train | step:  33125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4879,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7309625,
+     'training_loss': 3.6736922}
+I1008 16:18:08.981081 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-33125.
+I1008 16:18:08.982691 140099672749888 controller.py:277]  eval | step:  33125 | running 25 steps of evaluation...
+I1008 16:18:32.302894 140099672749888 controller.py:290]  eval | step:  33125 | eval time:   23.3 sec | output: {'accuracy': 0.4125, 'top_5_accuracy': 0.61546874, 'validation_loss': 4.808489}
+I1008 16:18:32.313204 140099672749888 controller.py:236] train | step:  33125 | training until step 33750...
+I1008 16:22:42.215038 140099672749888 controller.py:458] train | step:  33750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.48915625,
+     'training_loss': 3.9535024}
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7307875,
+     'training_loss': 3.6720366}
+saved checkpoint to /data/model_checkpoints/ckpt-23125.
+ eval | step:  23125 | running 25 steps of evaluation...
+ eval | step:  23125 | eval time:   23.9 sec | output: {'accuracy': 0.42859375, 'top_5_accuracy': 0.6175, 'validation_loss': 4.9708247}
+train | step:  23125 | training until step 23750...
+train | step:  23750 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.4736,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.71525,
+     'training_loss': 3.8986351}
+saved checkpoint to /data/model_checkpoints/ckpt-23750.
+ eval | step:  23750 | running 25 steps of evaluation...
+ eval | step:  23750 | eval time:   22.6 sec | output: {'accuracy': 0.4225, 'top_5_accuracy': 0.6145313, 'validation_loss': 4.9206924}
+train | step:  23750 | training until step 24375...
+train | step:  24375 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4742625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7161875,
+     'training_loss': 3.8619406}
+saved checkpoint to /data/model_checkpoints/ckpt-24375.
+ eval | step:  24375 | running 25 steps of evaluation...
+ eval | step:  24375 | eval time:   22.0 sec | output: 
+    {'accuracy': 0.41125,
+     'top_5_accuracy': 0.60765624,
+     'validation_loss': 4.8887296}
+train | step:  24375 | training until step 25000...
+train | step:  25000 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.47550625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7151875,
+     'training_loss': 3.8362617}
+saved checkpoint to /data/model_checkpoints/ckpt-25000.
+ eval | step:  25000 | running 25 steps of evaluation...
+ eval | step:  25000 | eval time:   20.6 sec | output: 
+    {'accuracy': 0.43484375,
+     'top_5_accuracy': 0.625625,
+     'validation_loss': 4.8284326}
+train | step:  25000 | training until step 25625...
+train | step:  25625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.47703126,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.718225,
+     'training_loss': 3.803061}
+saved checkpoint to /data/model_checkpoints/ckpt-25625.
+ eval | step:  25625 | running 25 steps of evaluation...
+ eval | step:  25625 | eval time:   23.3 sec | output: 
+    {'accuracy': 0.4278125,
+     'top_5_accuracy': 0.6240625,
+     'validation_loss': 4.8041425}
+train | step:  25625 | training until step 26250...
+train | step:  26250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.484325,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.725075,
+     'training_loss': 3.7472937}
+saved checkpoint to /data/model_checkpoints/ckpt-26250.
+ eval | step:  26250 | running 25 steps of evaluation...
+ eval | step:  26250 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.4365625,
+     'top_5_accuracy': 0.625625,
+     'validation_loss': 4.7440815}
+train | step:  26250 | training until step 26875...
+train | step:  26875 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4807125,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.723725,
+     'training_loss': 3.740839}
+saved checkpoint to /data/model_checkpoints/ckpt-26875.
+ eval | step:  26875 | running 25 steps of evaluation...
+ eval | step:  26875 | eval time:   20.4 sec | output: {'accuracy': 0.415, 'top_5_accuracy': 0.611875, 'validation_loss': 4.829971}
+train | step:  26875 | training until step 27500...
+train | step:  27500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4818375,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7239875,
+     'training_loss': 3.7313378}
+saved checkpoint to /data/model_checkpoints/ckpt-27500.
+ eval | step:  27500 | running 25 steps of evaluation...
+ eval | step:  27500 | eval time:   23.8 sec | output: 
+    {'accuracy': 0.42203125,
+     'top_5_accuracy': 0.6120312,
+     'validation_loss': 4.7812376}
+train | step:  27500 | training until step 28125...
+train | step:  28125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4815875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7239625,
+     'training_loss': 3.7235918}
+saved checkpoint to /data/model_checkpoints/ckpt-28125.
+ eval | step:  28125 | running 25 steps of evaluation...
+ eval | step:  28125 | eval time:   22.5 sec | output: 
+    {'accuracy': 0.4196875,
+     'top_5_accuracy': 0.6096875,
+     'validation_loss': 4.7926736}
+train | step:  28125 | training until step 28750...
+train | step:  28750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.483525,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7243937,
+     'training_loss': 3.7103374}
+saved checkpoint to /data/model_checkpoints/ckpt-28750.
+ eval | step:  28750 | running 25 steps of evaluation...
+ eval | step:  28750 | eval time:   22.0 sec | output: 
+    {'accuracy': 0.4084375,
+     'top_5_accuracy': 0.6015625,
+     'validation_loss': 4.7745104}
+train | step:  28750 | training until step 29375...
+train | step:  29375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.48330626,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7253,
+     'training_loss': 3.705296}
+saved checkpoint to /data/model_checkpoints/ckpt-29375.
+ eval | step:  29375 | running 25 steps of evaluation...
+ eval | step:  29375 | eval time:   21.6 sec | output: 
+    {'accuracy': 0.4334375,
+     'top_5_accuracy': 0.62078124,
+     'validation_loss': 4.680121}
+train | step:  29375 | training until step 30000...
+train | step:  30000 | steps/sec:    2.1 | output: 
+    {'accuracy': 0.4848875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.72813123,
+     'training_loss': 3.6901429}
+saved checkpoint to /data/model_checkpoints/ckpt-30000.
+ eval | step:  30000 | running 25 steps of evaluation...
+ eval | step:  30000 | eval time:   25.9 sec | output: 
+    {'accuracy': 0.42828125,
+     'top_5_accuracy': 0.625625,
+     'validation_loss': 4.7117248}
+train | step:  30000 | training until step 30625...
+train | step:  30625 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4913625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7332,
+     'training_loss': 3.6563609}
+saved checkpoint to /data/model_checkpoints/ckpt-30625.
+ eval | step:  30625 | running 25 steps of evaluation...
+ eval | step:  30625 | eval time:   20.7 sec | output: {'accuracy': 0.4153125, 'top_5_accuracy': 0.61, 'validation_loss': 4.772459}
+train | step:  30625 | training until step 31250...
+train | step:  31250 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.48865625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.73025626,
+     'training_loss': 3.6680942}
+saved checkpoint to /data/model_checkpoints/ckpt-31250.
+ eval | step:  31250 | running 25 steps of evaluation...
+ eval | step:  31250 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.42515624,
+     'top_5_accuracy': 0.619375,
+     'validation_loss': 4.6912184}
+train | step:  31250 | training until step 31875...
+train | step:  31875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4892625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7313875,
+     'training_loss': 3.666026}
+saved checkpoint to /data/model_checkpoints/ckpt-31875.
+ eval | step:  31875 | running 25 steps of evaluation...
+ eval | step:  31875 | eval time:   26.9 sec | output: 
+    {'accuracy': 0.43671876,
+     'top_5_accuracy': 0.62421876,
+     'validation_loss': 4.7100945}
+train | step:  31875 | training until step 32500...
+train | step:  32500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4881,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.72995,
+     'training_loss': 3.6741073}
+saved checkpoint to /data/model_checkpoints/ckpt-32500.
+ eval | step:  32500 | running 25 steps of evaluation...
+ eval | step:  32500 | eval time:   21.6 sec | output: 
+    {'accuracy': 0.4209375,
+     'top_5_accuracy': 0.60828125,
+     'validation_loss': 4.795967}
+train | step:  32500 | training until step 33125...
+train | step:  33125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.4879,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7309625,
+     'training_loss': 3.6736922}
+saved checkpoint to /data/model_checkpoints/ckpt-33125.
+ eval | step:  33125 | running 25 steps of evaluation...
+ eval | step:  33125 | eval time:   23.3 sec | output: {'accuracy': 0.4125, 'top_5_accuracy': 0.61546874, 'validation_loss': 4.808489}
+train | step:  33125 | training until step 33750...
+train | step:  33750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.48915625,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7307875,
+I1008 16:22:44.801123 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-33750.
+I1008 16:22:44.803158 140099672749888 controller.py:277]  eval | step:  33750 | running 25 steps of evaluation...
+I1008 16:23:09.665879 140099672749888 controller.py:290]  eval | step:  33750 | eval time:   24.9 sec | output: {'accuracy': 0.42640626, 'top_5_accuracy': 0.6175, 'validation_loss': 4.726119}
+I1008 16:23:09.677538 140099672749888 controller.py:236] train | step:  33750 | training until step 34375...
+I1008 16:27:13.116155 140099672749888 controller.py:458] train | step:  34375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5014312,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.74015623,
+     'training_loss': 3.6193671}
+I1008 16:27:15.896925 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-34375.
+I1008 16:27:15.898266 140099672749888 controller.py:277]  eval | step:  34375 | running 25 steps of evaluation...
+I1008 16:27:38.612905 140099672749888 controller.py:290]  eval | step:  34375 | eval time:   22.7 sec | output: 
+    {'accuracy': 0.4290625,
+     'top_5_accuracy': 0.6198437,
+     'validation_loss': 4.711555}
+I1008 16:27:38.621652 140099672749888 controller.py:236] train | step:  34375 | training until step 35000...
+I1008 16:31:46.184961 140099672749888 controller.py:458] train | step:  35000 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4961375,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7392625,
+     'training_loss': 3.6345417}
+I1008 16:31:48.953972 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-35000.
+I1008 16:31:48.963232 140099672749888 controller.py:277]  eval | step:  35000 | running 25 steps of evaluation...
+I1008 16:32:11.558089 140099672749888 controller.py:290]  eval | step:  35000 | eval time:   22.6 sec | output: 
+    {'accuracy': 0.43328124,
+     'top_5_accuracy': 0.62625,
+     'validation_loss': 4.7000585}
+I1008 16:32:11.566157 140099672749888 controller.py:236] train | step:  35000 | training until step 35625...
+I1008 16:36:17.609045 140099672749888 controller.py:458] train | step:  35625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.49665624,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.73674375,
+     'training_loss': 3.6499083}
+I1008 16:36:20.888425 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-35625.
+I1008 16:36:20.889922 140099672749888 controller.py:277]  eval | step:  35625 | running 25 steps of evaluation...
+I1008 16:36:43.307737 140099672749888 controller.py:290]  eval | step:  35625 | eval time:   22.4 sec | output: 
+    {'accuracy': 0.4234375,
+     'top_5_accuracy': 0.6276562,
+     'validation_loss': 4.7287993}
+I1008 16:36:43.314772 140099672749888 controller.py:236] train | step:  35625 | training until step 36250...
+I1008 16:40:51.160948 140099672749888 controller.py:458] train | step:  36250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.49606875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7363625,
+     'training_loss': 3.649952}
+I1008 16:40:54.483778 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-36250.
+I1008 16:40:54.485745 140099672749888 controller.py:277]  eval | step:  36250 | running 25 steps of evaluation...
+I1008 16:41:17.233518 140099672749888 controller.py:290]  eval | step:  36250 | eval time:   22.7 sec | output: 
+    {'accuracy': 0.42703125,
+     'top_5_accuracy': 0.6178125,
+     'validation_loss': 4.692252}
+I1008 16:41:17.249835 140099672749888 controller.py:236] train | step:  36250 | training until step 36875...
+I1008 16:45:24.436251 140099672749888 controller.py:458] train | step:  36875 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4973,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7373875,
+     'training_loss': 3.6501524}
+I1008 16:45:27.787691 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-36875.
+I1008 16:45:27.789535 140099672749888 controller.py:277]  eval | step:  36875 | running 25 steps of evaluation...
+I1008 16:45:49.498231 140099672749888 controller.py:290]  eval | step:  36875 | eval time:   21.7 sec | output: 
+    {'accuracy': 0.39765626,
+     'top_5_accuracy': 0.60078126,
+     'validation_loss': 4.8132524}
+I1008 16:45:49.506268 140099672749888 controller.py:236] train | step:  36875 | training until step 37500...
+I1008 16:49:54.737882 140099672749888 controller.py:458] train | step:  37500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.49981874,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.73775,
+     'training_loss': 3.64996}
+I1008 16:49:58.744408 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-37500.
+I1008 16:49:58.745803 140099672749888 controller.py:277]  eval | step:  37500 | running 25 steps of evaluation...
+I1008 16:50:21.562012 140099672749888 controller.py:290]  eval | step:  37500 | eval time:   22.8 sec | output: 
+    {'accuracy': 0.42359376,
+     'top_5_accuracy': 0.62328124,
+     'validation_loss': 4.7094154}
+I1008 16:50:21.568446 140099672749888 controller.py:236] train | step:  37500 | training until step 38125...
+I1008 16:54:23.240350 140099672749888 controller.py:458] train | step:  38125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5430125,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.77304375,
+     'training_loss': 3.4601176}
+I1008 16:54:26.118978 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-38125.
+I1008 16:54:26.120288 140099672749888 controller.py:277]  eval | step:  38125 | running 25 steps of evaluation...
+I1008 16:54:47.687138 140099672749888 controller.py:290]  eval | step:  38125 | eval time:   21.6 sec | output: {'accuracy': 0.49375, 'top_5_accuracy': 0.6684375, 'validation_loss': 4.4783854}
+I1008 16:54:47.697297 140099672749888 controller.py:236] train | step:  38125 | training until step 38750...
+I1008 16:59:00.640942 140099672749888 controller.py:458] train | step:  38750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5679188,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.79016876,
+     'training_loss': 3.3511777}
+I1008 16:59:04.747150 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-38750.
+I1008 16:59:04.749373 140099672749888 controller.py:277]  eval | step:  38750 | running 25 steps of evaluation...
+I1008 16:59:28.195436 140099672749888 controller.py:290]  eval | step:  38750 | eval time:   23.4 sec | output: 
+    {'accuracy': 0.5026562,
+     'top_5_accuracy': 0.67359376,
+     'validation_loss': 4.4202685}
+I1008 16:59:28.207151 140099672749888 controller.py:236] train | step:  38750 | training until step 39375...
+I1008 17:03:32.690019 140099672749888 controller.py:458] train | step:  39375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5740625,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.79424375,
+     'training_loss': 3.3225558}
+I1008 17:03:36.879402 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-39375.
+I1008 17:03:36.881024 140099672749888 controller.py:277]  eval | step:  39375 | running 25 steps of evaluation...
+I1008 17:03:57.444746 140099672749888 controller.py:290]  eval | step:  39375 | eval time:   20.6 sec | output: 
+    {'accuracy': 0.50671875,
+     'top_5_accuracy': 0.67234373,
+     'validation_loss': 4.3964415}
+I1008 17:03:57.450513 140099672749888 controller.py:236] train | step:  39375 | training until step 40000...
+I1008 17:08:10.550162 140099672749888 controller.py:458] train | step:  40000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.5772125,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.7956125,
+     'training_loss': 3.303884}
+I1008 17:08:13.527606 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-40000.
+I1008 17:08:13.535605 140099672749888 controller.py:277]  eval | step:  40000 | running 25 steps of evaluation...
+I1008 17:08:37.715117 140099672749888 controller.py:290]  eval | step:  40000 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.51359373,
+     'top_5_accuracy': 0.67390627,
+     'validation_loss': 4.3854613}
+I1008 17:08:37.721525 140099672749888 controller.py:236] train | step:  40000 | training until step 40625...
+I1008 17:12:52.284480 140099672749888 controller.py:458] train | step:  40625 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.58013123,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.79964375,
+     'training_loss': 3.285061}
+I1008 17:12:55.134352 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-40625.
+I1008 17:12:55.135738 140099672749888 controller.py:277]  eval | step:  40625 | running 25 steps of evaluation...
+I1008 17:13:17.560574 140099672749888 controller.py:290]  eval | step:  40625 | eval time:   22.4 sec | output: 
+    {'accuracy': 0.509375,
+     'top_5_accuracy': 0.6771875,
+     'validation_loss': 4.3596315}
+I1008 17:13:17.570768 140099672749888 controller.py:236] train | step:  40625 | training until step 41250...
+I1008 17:17:19.427434 140099672749888 controller.py:458] train | step:  41250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5832875,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.80048126,
+     'training_loss': 3.272385}
+I1008 17:17:22.534975 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-41250.
+I1008 17:17:22.536344 140099672749888 controller.py:277]  eval | step:  41250 | running 25 steps of evaluation...
+I1008 17:17:49.543546 140099672749888 controller.py:290]  eval | step:  41250 | eval time:   27.0 sec | output: 
+    {'accuracy': 0.5132812,
+     'top_5_accuracy': 0.67609376,
+     'validation_loss': 4.3451214}
+I1008 17:17:49.561546 140099672749888 controller.py:236] train | step:  41250 | training until step 41875...
+I1008 17:22:08.470370 140099672749888 controller.py:458] train | step:  41875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.58640623,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8039188,
+     'training_loss': 3.247233}
+I1008 17:22:11.558665 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-41875.
+I1008 17:22:11.560394 140099672749888 controller.py:277]  eval | step:  41875 | running 25 steps of evaluation...
+I1008 17:22:32.550852 140099672749888 controller.py:290]  eval | step:  41875 | eval time:   21.0 sec | output: 
+    {'accuracy': 0.51703125,
+     'top_5_accuracy': 0.67875,
+     'validation_loss': 4.3229656}
+I1008 17:22:32.557837 140099672749888 controller.py:236] train | step:  41875 | training until step 42500...
+I1008 17:26:42.603825 140099672749888 controller.py:458] train | step:  42500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.59295624,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8072375,
+     'training_loss': 3.2234855}
+I1008 17:26:45.502016 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-42500.
+I1008 17:26:45.503265 140099672749888 controller.py:277]  eval | step:  42500 | running 25 steps of evaluation...
+I1008 17:27:08.981218 140099672749888 controller.py:290]  eval | step:  42500 | eval time:   23.5 sec | output: 
+    {'accuracy': 0.5182812,
+     'top_5_accuracy': 0.67828125,
+     'validation_loss': 4.3001184}
+I1008 17:27:08.987386 140099672749888 controller.py:236] train | step:  42500 | training until step 43125...
+I1008 17:31:11.065408 140099672749888 controller.py:458] train | step:  43125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5916188,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.80819374,
+     'training_loss': 3.2177162}
+I1008 17:31:14.001182 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-43125.
+I1008 17:31:14.003546 140099672749888 controller.py:277]  eval | step:  43125 | running 25 steps of evaluation...
+I1008 17:31:36.279696 140099672749888 controller.py:290]  eval | step:  43125 | eval time:   22.3 sec | output: 
+    {'accuracy': 0.52234375,
+     'top_5_accuracy': 0.68140626,
+     'validation_loss': 4.287012}
+I1008 17:31:36.287466 140099672749888 controller.py:236] train | step:  43125 | training until step 43750...
+I1008 17:35:51.867939 140099672749888 controller.py:458] train | step:  43750 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.59375,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8084813,
+     'training_loss': 3.2072973}
+I1008 17:35:54.357517 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-43750.
+I1008 17:35:54.361478 140099672749888 controller.py:277]  eval | step:  43750 | running 25 steps of evaluation...
+I1008 17:36:15.124418 140099672749888 controller.py:290]  eval | step:  43750 | eval time:   20.8 sec | output: {'accuracy': 0.5225, 'top_5_accuracy': 0.6815625, 'validation_loss': 4.294601}
+I1008 17:36:15.130718 140099672749888 controller.py:236] train | step:  43750 | training until step 44375...
+I1008 17:40:25.203820 140099672749888 controller.py:458] train | step:  44375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5962,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.80976874,
+     'training_loss': 3.1942186}
+     'training_loss': 3.6720366}
+saved checkpoint to /data/model_checkpoints/ckpt-33750.
+ eval | step:  33750 | running 25 steps of evaluation...
+ eval | step:  33750 | eval time:   24.9 sec | output: {'accuracy': 0.42640626, 'top_5_accuracy': 0.6175, 'validation_loss': 4.726119}
+train | step:  33750 | training until step 34375...
+train | step:  34375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5014312,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.74015623,
+     'training_loss': 3.6193671}
+saved checkpoint to /data/model_checkpoints/ckpt-34375.
+ eval | step:  34375 | running 25 steps of evaluation...
+ eval | step:  34375 | eval time:   22.7 sec | output: 
+    {'accuracy': 0.4290625,
+     'top_5_accuracy': 0.6198437,
+     'validation_loss': 4.711555}
+train | step:  34375 | training until step 35000...
+train | step:  35000 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4961375,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7392625,
+     'training_loss': 3.6345417}
+saved checkpoint to /data/model_checkpoints/ckpt-35000.
+ eval | step:  35000 | running 25 steps of evaluation...
+ eval | step:  35000 | eval time:   22.6 sec | output: 
+    {'accuracy': 0.43328124,
+     'top_5_accuracy': 0.62625,
+     'validation_loss': 4.7000585}
+train | step:  35000 | training until step 35625...
+train | step:  35625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.49665624,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.73674375,
+     'training_loss': 3.6499083}
+saved checkpoint to /data/model_checkpoints/ckpt-35625.
+ eval | step:  35625 | running 25 steps of evaluation...
+ eval | step:  35625 | eval time:   22.4 sec | output: 
+    {'accuracy': 0.4234375,
+     'top_5_accuracy': 0.6276562,
+     'validation_loss': 4.7287993}
+train | step:  35625 | training until step 36250...
+train | step:  36250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.49606875,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7363625,
+     'training_loss': 3.649952}
+saved checkpoint to /data/model_checkpoints/ckpt-36250.
+ eval | step:  36250 | running 25 steps of evaluation...
+ eval | step:  36250 | eval time:   22.7 sec | output: 
+    {'accuracy': 0.42703125,
+     'top_5_accuracy': 0.6178125,
+     'validation_loss': 4.692252}
+train | step:  36250 | training until step 36875...
+train | step:  36875 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.4973,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.7373875,
+     'training_loss': 3.6501524}
+saved checkpoint to /data/model_checkpoints/ckpt-36875.
+ eval | step:  36875 | running 25 steps of evaluation...
+ eval | step:  36875 | eval time:   21.7 sec | output: 
+    {'accuracy': 0.39765626,
+     'top_5_accuracy': 0.60078126,
+     'validation_loss': 4.8132524}
+train | step:  36875 | training until step 37500...
+train | step:  37500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.49981874,
+     'learning_rate': 0.08,
+     'top_5_accuracy': 0.73775,
+     'training_loss': 3.64996}
+saved checkpoint to /data/model_checkpoints/ckpt-37500.
+ eval | step:  37500 | running 25 steps of evaluation...
+ eval | step:  37500 | eval time:   22.8 sec | output: 
+    {'accuracy': 0.42359376,
+     'top_5_accuracy': 0.62328124,
+     'validation_loss': 4.7094154}
+train | step:  37500 | training until step 38125...
+train | step:  38125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5430125,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.77304375,
+     'training_loss': 3.4601176}
+saved checkpoint to /data/model_checkpoints/ckpt-38125.
+ eval | step:  38125 | running 25 steps of evaluation...
+ eval | step:  38125 | eval time:   21.6 sec | output: {'accuracy': 0.49375, 'top_5_accuracy': 0.6684375, 'validation_loss': 4.4783854}
+train | step:  38125 | training until step 38750...
+train | step:  38750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5679188,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.79016876,
+     'training_loss': 3.3511777}
+saved checkpoint to /data/model_checkpoints/ckpt-38750.
+ eval | step:  38750 | running 25 steps of evaluation...
+ eval | step:  38750 | eval time:   23.4 sec | output: 
+    {'accuracy': 0.5026562,
+     'top_5_accuracy': 0.67359376,
+     'validation_loss': 4.4202685}
+train | step:  38750 | training until step 39375...
+train | step:  39375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5740625,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.79424375,
+     'training_loss': 3.3225558}
+saved checkpoint to /data/model_checkpoints/ckpt-39375.
+ eval | step:  39375 | running 25 steps of evaluation...
+ eval | step:  39375 | eval time:   20.6 sec | output: 
+    {'accuracy': 0.50671875,
+     'top_5_accuracy': 0.67234373,
+     'validation_loss': 4.3964415}
+train | step:  39375 | training until step 40000...
+train | step:  40000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.5772125,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.7956125,
+     'training_loss': 3.303884}
+saved checkpoint to /data/model_checkpoints/ckpt-40000.
+ eval | step:  40000 | running 25 steps of evaluation...
+ eval | step:  40000 | eval time:   24.2 sec | output: 
+    {'accuracy': 0.51359373,
+     'top_5_accuracy': 0.67390627,
+     'validation_loss': 4.3854613}
+train | step:  40000 | training until step 40625...
+train | step:  40625 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.58013123,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.79964375,
+     'training_loss': 3.285061}
+saved checkpoint to /data/model_checkpoints/ckpt-40625.
+ eval | step:  40625 | running 25 steps of evaluation...
+ eval | step:  40625 | eval time:   22.4 sec | output: 
+    {'accuracy': 0.509375,
+     'top_5_accuracy': 0.6771875,
+     'validation_loss': 4.3596315}
+train | step:  40625 | training until step 41250...
+train | step:  41250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5832875,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.80048126,
+     'training_loss': 3.272385}
+saved checkpoint to /data/model_checkpoints/ckpt-41250.
+ eval | step:  41250 | running 25 steps of evaluation...
+ eval | step:  41250 | eval time:   27.0 sec | output: 
+    {'accuracy': 0.5132812,
+     'top_5_accuracy': 0.67609376,
+     'validation_loss': 4.3451214}
+train | step:  41250 | training until step 41875...
+train | step:  41875 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.58640623,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8039188,
+     'training_loss': 3.247233}
+saved checkpoint to /data/model_checkpoints/ckpt-41875.
+ eval | step:  41875 | running 25 steps of evaluation...
+ eval | step:  41875 | eval time:   21.0 sec | output: 
+    {'accuracy': 0.51703125,
+     'top_5_accuracy': 0.67875,
+     'validation_loss': 4.3229656}
+train | step:  41875 | training until step 42500...
+train | step:  42500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.59295624,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8072375,
+     'training_loss': 3.2234855}
+saved checkpoint to /data/model_checkpoints/ckpt-42500.
+ eval | step:  42500 | running 25 steps of evaluation...
+ eval | step:  42500 | eval time:   23.5 sec | output: 
+    {'accuracy': 0.5182812,
+     'top_5_accuracy': 0.67828125,
+     'validation_loss': 4.3001184}
+train | step:  42500 | training until step 43125...
+train | step:  43125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5916188,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.80819374,
+     'training_loss': 3.2177162}
+saved checkpoint to /data/model_checkpoints/ckpt-43125.
+ eval | step:  43125 | running 25 steps of evaluation...
+ eval | step:  43125 | eval time:   22.3 sec | output: 
+    {'accuracy': 0.52234375,
+     'top_5_accuracy': 0.68140626,
+     'validation_loss': 4.287012}
+train | step:  43125 | training until step 43750...
+train | step:  43750 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.59375,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8084813,
+     'training_loss': 3.2072973}
+saved checkpoint to /data/model_checkpoints/ckpt-43750.
+ eval | step:  43750 | running 25 steps of evaluation...
+ eval | step:  43750 | eval time:   20.8 sec | output: {'accuracy': 0.5225, 'top_5_accuracy': 0.6815625, 'validation_loss': 4.294601}
+train | step:  43750 | training until step 44375...
+train | step:  44375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.5962,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.80976874,
+I1008 17:40:28.520878 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-44375.
+I1008 17:40:28.522663 140099672749888 controller.py:277]  eval | step:  44375 | running 25 steps of evaluation...
+I1008 17:40:49.363282 140099672749888 controller.py:290]  eval | step:  44375 | eval time:   20.8 sec | output: 
+    {'accuracy': 0.5185937,
+     'top_5_accuracy': 0.68078125,
+     'validation_loss': 4.2836843}
+I1008 17:40:49.369507 140099672749888 controller.py:236] train | step:  44375 | training until step 45000...
+I1008 17:45:01.258389 140099672749888 controller.py:458] train | step:  45000 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.59694374,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81099373,
+     'training_loss': 3.1837237}
+I1008 17:45:04.500886 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-45000.
+I1008 17:45:04.503412 140099672749888 controller.py:277]  eval | step:  45000 | running 25 steps of evaluation...
+I1008 17:45:27.871417 140099672749888 controller.py:290]  eval | step:  45000 | eval time:   23.4 sec | output: {'accuracy': 0.52, 'top_5_accuracy': 0.68078125, 'validation_loss': 4.2632365}
+I1008 17:45:27.878658 140099672749888 controller.py:236] train | step:  45000 | training until step 45625...
+I1008 17:49:34.966087 140099672749888 controller.py:458] train | step:  45625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.59844375,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81281877,
+     'training_loss': 3.174088}
+I1008 17:49:39.815559 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-45625.
+I1008 17:49:39.817321 140099672749888 controller.py:277]  eval | step:  45625 | running 25 steps of evaluation...
+I1008 17:50:06.640540 140099672749888 controller.py:290]  eval | step:  45625 | eval time:   26.8 sec | output: 
+    {'accuracy': 0.52171874,
+     'top_5_accuracy': 0.68359375,
+     'validation_loss': 4.2585077}
+I1008 17:50:06.656596 140099672749888 controller.py:236] train | step:  45625 | training until step 46250...
+I1008 17:55:05.174599 140099672749888 controller.py:458] train | step:  46250 | steps/sec:    1.9 | output: 
+    {'accuracy': 0.60280627,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8152875,
+     'training_loss': 3.1533728}
+I1008 17:55:08.726538 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-46250.
+I1008 17:55:08.728080 140099672749888 controller.py:277]  eval | step:  46250 | running 25 steps of evaluation...
+I1008 17:55:41.168201 140099672749888 controller.py:290]  eval | step:  46250 | eval time:   32.4 sec | output: 
+    {'accuracy': 0.52515626,
+     'top_5_accuracy': 0.6828125,
+     'validation_loss': 4.2492027}
+I1008 17:55:41.186430 140099672749888 controller.py:236] train | step:  46250 | training until step 46875...
+I1008 18:01:22.629672 140099672749888 controller.py:458] train | step:  46875 | steps/sec:    1.7 | output: 
+    {'accuracy': 0.601225,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81521875,
+     'training_loss': 3.1483145}
+I1008 18:01:26.741937 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-46875.
+I1008 18:01:26.746628 140099672749888 controller.py:277]  eval | step:  46875 | running 25 steps of evaluation...
+I1008 18:01:51.391253 140099672749888 controller.py:290]  eval | step:  46875 | eval time:   24.6 sec | output: 
+    {'accuracy': 0.52203125,
+     'top_5_accuracy': 0.6803125,
+     'validation_loss': 4.2484303}
+I1008 18:01:51.412598 140099672749888 controller.py:236] train | step:  46875 | training until step 47500...
+I1008 18:06:06.222511 140099672749888 controller.py:458] train | step:  47500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.6022125,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8145,
+     'training_loss': 3.1439044}
+I1008 18:06:10.262005 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-47500.
+I1008 18:06:10.263712 140099672749888 controller.py:277]  eval | step:  47500 | running 25 steps of evaluation...
+I1008 18:06:33.606683 140099672749888 controller.py:290]  eval | step:  47500 | eval time:   23.3 sec | output: 
+    {'accuracy': 0.52734375,
+     'top_5_accuracy': 0.68359375,
+     'validation_loss': 4.2174735}
+I1008 18:06:33.619566 140099672749888 controller.py:236] train | step:  47500 | training until step 48125...
+I1008 18:10:44.372735 140099672749888 controller.py:458] train | step:  48125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.6037875,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81691873,
+     'training_loss': 3.1311557}
+I1008 18:10:48.165681 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-48125.
+I1008 18:10:48.175838 140099672749888 controller.py:277]  eval | step:  48125 | running 25 steps of evaluation...
+I1008 18:11:09.336725 140099672749888 controller.py:290]  eval | step:  48125 | eval time:   21.2 sec | output: 
+    {'accuracy': 0.52546877,
+     'top_5_accuracy': 0.68625,
+     'validation_loss': 4.2266254}
+I1008 18:11:09.344853 140099672749888 controller.py:236] train | step:  48125 | training until step 48750...
+I1008 18:15:14.441448 140099672749888 controller.py:458] train | step:  48750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6046375,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81584376,
+     'training_loss': 3.1281798}
+I1008 18:15:18.332308 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-48750.
+I1008 18:15:18.333915 140099672749888 controller.py:277]  eval | step:  48750 | running 25 steps of evaluation...
+I1008 18:15:40.292479 140099672749888 controller.py:290]  eval | step:  48750 | eval time:   22.0 sec | output: 
+    {'accuracy': 0.52421874,
+     'top_5_accuracy': 0.6851562,
+     'validation_loss': 4.2216773}
+I1008 18:15:40.299907 140099672749888 controller.py:236] train | step:  48750 | training until step 49375...
+I1008 18:19:49.927637 140099672749888 controller.py:458] train | step:  49375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6057875,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8162063,
+     'training_loss': 3.1226509}
+I1008 18:19:53.119992 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-49375.
+I1008 18:19:53.121950 140099672749888 controller.py:277]  eval | step:  49375 | running 25 steps of evaluation...
+I1008 18:20:17.662004 140099672749888 controller.py:290]  eval | step:  49375 | eval time:   24.5 sec | output: 
+    {'accuracy': 0.5246875,
+     'top_5_accuracy': 0.685625,
+     'validation_loss': 4.2294307}
+I1008 18:20:17.673453 140099672749888 controller.py:236] train | step:  49375 | training until step 50000...
+I1008 18:24:20.223266 140099672749888 controller.py:458] train | step:  50000 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.608,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.82023126,
+     'training_loss': 3.1009462}
+I1008 18:24:22.990767 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-50000.
+I1008 18:24:22.992831 140099672749888 controller.py:277]  eval | step:  50000 | running 25 steps of evaluation...
+I1008 18:24:44.599415 140099672749888 controller.py:290]  eval | step:  50000 | eval time:   21.6 sec | output: {'accuracy': 0.52625, 'top_5_accuracy': 0.68625, 'validation_loss': 4.2035832}
+I1008 18:24:44.614460 140099672749888 controller.py:236] train | step:  50000 | training until step 50625...
+I1008 18:28:52.177703 140099672749888 controller.py:458] train | step:  50625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.61599374,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82365,
+     'training_loss': 3.073855}
+I1008 18:28:55.315778 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-50625.
+I1008 18:28:55.319477 140099672749888 controller.py:277]  eval | step:  50625 | running 25 steps of evaluation...
+I1008 18:29:22.256170 140099672749888 controller.py:290]  eval | step:  50625 | eval time:   26.9 sec | output: {'accuracy': 0.53203124, 'top_5_accuracy': 0.6875, 'validation_loss': 4.1741304}
+I1008 18:29:22.277530 140099672749888 controller.py:236] train | step:  50625 | training until step 51250...
+I1008 18:33:23.166323 140099672749888 controller.py:458] train | step:  51250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6156875,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.8253437,
+     'training_loss': 3.0696235}
+I1008 18:33:26.329221 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-51250.
+I1008 18:33:26.330692 140099672749888 controller.py:277]  eval | step:  51250 | running 25 steps of evaluation...
+I1008 18:33:48.586239 140099672749888 controller.py:290]  eval | step:  51250 | eval time:   22.3 sec | output: {'accuracy': 0.5339062, 'top_5_accuracy': 0.688125, 'validation_loss': 4.174124}
+I1008 18:33:48.593305 140099672749888 controller.py:236] train | step:  51250 | training until step 51875...
+I1008 18:37:54.332302 140099672749888 controller.py:458] train | step:  51875 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6183063,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.825575,
+     'training_loss': 3.0620358}
+I1008 18:37:57.414725 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-51875.
+I1008 18:37:57.416212 140099672749888 controller.py:277]  eval | step:  51875 | running 25 steps of evaluation...
+I1008 18:38:18.505373 140099672749888 controller.py:290]  eval | step:  51875 | eval time:   21.1 sec | output: 
+    {'accuracy': 0.5353125,
+     'top_5_accuracy': 0.68859375,
+     'validation_loss': 4.175632}
+I1008 18:38:18.517263 140099672749888 controller.py:236] train | step:  51875 | training until step 52500...
+I1008 18:42:22.498285 140099672749888 controller.py:458] train | step:  52500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6183438,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82496876,
+     'training_loss': 3.0627058}
+I1008 18:42:25.494408 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-52500.
+I1008 18:42:25.496083 140099672749888 controller.py:277]  eval | step:  52500 | running 25 steps of evaluation...
+I1008 18:42:46.871766 140099672749888 controller.py:290]  eval | step:  52500 | eval time:   21.4 sec | output: 
+    {'accuracy': 0.5353125,
+     'top_5_accuracy': 0.6884375,
+     'validation_loss': 4.1706877}
+I1008 18:42:46.879460 140099672749888 controller.py:236] train | step:  52500 | training until step 53125...
+I1008 18:46:55.144364 140099672749888 controller.py:458] train | step:  53125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6185625,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82641876,
+     'training_loss': 3.0574248}
+I1008 18:46:58.036271 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-53125.
+I1008 18:46:58.049424 140099672749888 controller.py:277]  eval | step:  53125 | running 25 steps of evaluation...
+I1008 18:47:20.839971 140099672749888 controller.py:290]  eval | step:  53125 | eval time:   22.8 sec | output: 
+    {'accuracy': 0.53546876,
+     'top_5_accuracy': 0.68828124,
+     'validation_loss': 4.1743712}
+I1008 18:47:20.846648 140099672749888 controller.py:236] train | step:  53125 | training until step 53750...
+I1008 18:51:28.784398 140099672749888 controller.py:458] train | step:  53750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6193563,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82593125,
+     'training_loss': 3.0535052}
+I1008 18:51:32.036191 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-53750.
+I1008 18:51:32.038847 140099672749888 controller.py:277]  eval | step:  53750 | running 25 steps of evaluation...
+I1008 18:51:54.772342 140099672749888 controller.py:290]  eval | step:  53750 | eval time:   22.7 sec | output: 
+    {'accuracy': 0.53578126,
+     'top_5_accuracy': 0.68859375,
+     'validation_loss': 4.1666393}
+I1008 18:51:54.781445 140099672749888 controller.py:236] train | step:  53750 | training until step 54375...
+I1008 18:55:58.358580 140099672749888 controller.py:458] train | step:  54375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.62066877,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.826675,
+     'training_loss': 3.049603}
+I1008 18:56:00.929597 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-54375.
+I1008 18:56:00.930836 140099672749888 controller.py:277]  eval | step:  54375 | running 25 steps of evaluation...
+I1008 18:56:23.482870 140099672749888 controller.py:290]  eval | step:  54375 | eval time:   22.6 sec | output: 
+    {'accuracy': 0.5364063,
+     'top_5_accuracy': 0.68796873,
+     'validation_loss': 4.162128}
+I1008 18:56:23.490393 140099672749888 controller.py:236] train | step:  54375 | training until step 55000...
+I1008 19:00:37.085923 140099672749888 controller.py:458] train | step:  55000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.62271875,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82834375,
+     'training_loss': 3.0421991}
+     'training_loss': 3.1942186}
+saved checkpoint to /data/model_checkpoints/ckpt-44375.
+ eval | step:  44375 | running 25 steps of evaluation...
+ eval | step:  44375 | eval time:   20.8 sec | output: 
+    {'accuracy': 0.5185937,
+     'top_5_accuracy': 0.68078125,
+     'validation_loss': 4.2836843}
+train | step:  44375 | training until step 45000...
+train | step:  45000 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.59694374,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81099373,
+     'training_loss': 3.1837237}
+saved checkpoint to /data/model_checkpoints/ckpt-45000.
+ eval | step:  45000 | running 25 steps of evaluation...
+ eval | step:  45000 | eval time:   23.4 sec | output: {'accuracy': 0.52, 'top_5_accuracy': 0.68078125, 'validation_loss': 4.2632365}
+train | step:  45000 | training until step 45625...
+train | step:  45625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.59844375,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81281877,
+     'training_loss': 3.174088}
+saved checkpoint to /data/model_checkpoints/ckpt-45625.
+ eval | step:  45625 | running 25 steps of evaluation...
+ eval | step:  45625 | eval time:   26.8 sec | output: 
+    {'accuracy': 0.52171874,
+     'top_5_accuracy': 0.68359375,
+     'validation_loss': 4.2585077}
+train | step:  45625 | training until step 46250...
+train | step:  46250 | steps/sec:    1.9 | output: 
+    {'accuracy': 0.60280627,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8152875,
+     'training_loss': 3.1533728}
+saved checkpoint to /data/model_checkpoints/ckpt-46250.
+ eval | step:  46250 | running 25 steps of evaluation...
+ eval | step:  46250 | eval time:   32.4 sec | output: 
+    {'accuracy': 0.52515626,
+     'top_5_accuracy': 0.6828125,
+     'validation_loss': 4.2492027}
+train | step:  46250 | training until step 46875...
+train | step:  46875 | steps/sec:    1.7 | output: 
+    {'accuracy': 0.601225,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81521875,
+     'training_loss': 3.1483145}
+saved checkpoint to /data/model_checkpoints/ckpt-46875.
+ eval | step:  46875 | running 25 steps of evaluation...
+ eval | step:  46875 | eval time:   24.6 sec | output: 
+    {'accuracy': 0.52203125,
+     'top_5_accuracy': 0.6803125,
+     'validation_loss': 4.2484303}
+train | step:  46875 | training until step 47500...
+train | step:  47500 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.6022125,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8145,
+     'training_loss': 3.1439044}
+saved checkpoint to /data/model_checkpoints/ckpt-47500.
+ eval | step:  47500 | running 25 steps of evaluation...
+ eval | step:  47500 | eval time:   23.3 sec | output: 
+    {'accuracy': 0.52734375,
+     'top_5_accuracy': 0.68359375,
+     'validation_loss': 4.2174735}
+train | step:  47500 | training until step 48125...
+train | step:  48125 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.6037875,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81691873,
+     'training_loss': 3.1311557}
+saved checkpoint to /data/model_checkpoints/ckpt-48125.
+ eval | step:  48125 | running 25 steps of evaluation...
+ eval | step:  48125 | eval time:   21.2 sec | output: 
+    {'accuracy': 0.52546877,
+     'top_5_accuracy': 0.68625,
+     'validation_loss': 4.2266254}
+train | step:  48125 | training until step 48750...
+train | step:  48750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6046375,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.81584376,
+     'training_loss': 3.1281798}
+saved checkpoint to /data/model_checkpoints/ckpt-48750.
+ eval | step:  48750 | running 25 steps of evaluation...
+ eval | step:  48750 | eval time:   22.0 sec | output: 
+    {'accuracy': 0.52421874,
+     'top_5_accuracy': 0.6851562,
+     'validation_loss': 4.2216773}
+train | step:  48750 | training until step 49375...
+train | step:  49375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6057875,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.8162063,
+     'training_loss': 3.1226509}
+saved checkpoint to /data/model_checkpoints/ckpt-49375.
+ eval | step:  49375 | running 25 steps of evaluation...
+ eval | step:  49375 | eval time:   24.5 sec | output: 
+    {'accuracy': 0.5246875,
+     'top_5_accuracy': 0.685625,
+     'validation_loss': 4.2294307}
+train | step:  49375 | training until step 50000...
+train | step:  50000 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.608,
+     'learning_rate': 0.008,
+     'top_5_accuracy': 0.82023126,
+     'training_loss': 3.1009462}
+saved checkpoint to /data/model_checkpoints/ckpt-50000.
+ eval | step:  50000 | running 25 steps of evaluation...
+ eval | step:  50000 | eval time:   21.6 sec | output: {'accuracy': 0.52625, 'top_5_accuracy': 0.68625, 'validation_loss': 4.2035832}
+train | step:  50000 | training until step 50625...
+train | step:  50625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.61599374,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82365,
+     'training_loss': 3.073855}
+saved checkpoint to /data/model_checkpoints/ckpt-50625.
+ eval | step:  50625 | running 25 steps of evaluation...
+ eval | step:  50625 | eval time:   26.9 sec | output: {'accuracy': 0.53203124, 'top_5_accuracy': 0.6875, 'validation_loss': 4.1741304}
+train | step:  50625 | training until step 51250...
+train | step:  51250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6156875,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.8253437,
+     'training_loss': 3.0696235}
+saved checkpoint to /data/model_checkpoints/ckpt-51250.
+ eval | step:  51250 | running 25 steps of evaluation...
+ eval | step:  51250 | eval time:   22.3 sec | output: {'accuracy': 0.5339062, 'top_5_accuracy': 0.688125, 'validation_loss': 4.174124}
+train | step:  51250 | training until step 51875...
+train | step:  51875 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6183063,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.825575,
+     'training_loss': 3.0620358}
+saved checkpoint to /data/model_checkpoints/ckpt-51875.
+ eval | step:  51875 | running 25 steps of evaluation...
+ eval | step:  51875 | eval time:   21.1 sec | output: 
+    {'accuracy': 0.5353125,
+     'top_5_accuracy': 0.68859375,
+     'validation_loss': 4.175632}
+train | step:  51875 | training until step 52500...
+train | step:  52500 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6183438,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82496876,
+     'training_loss': 3.0627058}
+saved checkpoint to /data/model_checkpoints/ckpt-52500.
+ eval | step:  52500 | running 25 steps of evaluation...
+ eval | step:  52500 | eval time:   21.4 sec | output: 
+    {'accuracy': 0.5353125,
+     'top_5_accuracy': 0.6884375,
+     'validation_loss': 4.1706877}
+train | step:  52500 | training until step 53125...
+train | step:  53125 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6185625,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82641876,
+     'training_loss': 3.0574248}
+saved checkpoint to /data/model_checkpoints/ckpt-53125.
+ eval | step:  53125 | running 25 steps of evaluation...
+ eval | step:  53125 | eval time:   22.8 sec | output: 
+    {'accuracy': 0.53546876,
+     'top_5_accuracy': 0.68828124,
+     'validation_loss': 4.1743712}
+train | step:  53125 | training until step 53750...
+train | step:  53750 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6193563,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82593125,
+     'training_loss': 3.0535052}
+saved checkpoint to /data/model_checkpoints/ckpt-53750.
+ eval | step:  53750 | running 25 steps of evaluation...
+ eval | step:  53750 | eval time:   22.7 sec | output: 
+    {'accuracy': 0.53578126,
+     'top_5_accuracy': 0.68859375,
+     'validation_loss': 4.1666393}
+train | step:  53750 | training until step 54375...
+train | step:  54375 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.62066877,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.826675,
+     'training_loss': 3.049603}
+saved checkpoint to /data/model_checkpoints/ckpt-54375.
+ eval | step:  54375 | running 25 steps of evaluation...
+ eval | step:  54375 | eval time:   22.6 sec | output: 
+    {'accuracy': 0.5364063,
+     'top_5_accuracy': 0.68796873,
+     'validation_loss': 4.162128}
+train | step:  54375 | training until step 55000...
+train | step:  55000 | steps/sec:    2.2 | output: 
+    {'accuracy': 0.62271875,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82834375,
+I1008 19:00:40.893531 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-55000.
+I1008 19:00:40.894823 140099672749888 controller.py:277]  eval | step:  55000 | running 25 steps of evaluation...
+I1008 19:01:02.717599 140099672749888 controller.py:290]  eval | step:  55000 | eval time:   21.8 sec | output: 
+    {'accuracy': 0.53828126,
+     'top_5_accuracy': 0.6890625,
+     'validation_loss': 4.165454}
+I1008 19:01:02.725296 140099672749888 controller.py:236] train | step:  55000 | training until step 55625...
+I1008 19:05:05.913383 140099672749888 controller.py:458] train | step:  55625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.62105626,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.8271313,
+     'training_loss': 3.0459292}
+I1008 19:05:09.080031 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-55625.
+I1008 19:05:09.081433 140099672749888 controller.py:277]  eval | step:  55625 | running 25 steps of evaluation...
+I1008 19:05:32.300613 140099672749888 controller.py:290]  eval | step:  55625 | eval time:   23.2 sec | output: 
+    {'accuracy': 0.5360938,
+     'top_5_accuracy': 0.6896875,
+     'validation_loss': 4.167642}
+I1008 19:05:32.311684 140099672749888 controller.py:236] train | step:  55625 | training until step 56250...
+I1008 19:09:32.907712 140099672749888 controller.py:458] train | step:  56250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6233375,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82771873,
+     'training_loss': 3.0428004}
+I1008 19:09:36.076752 140099672749888 controller.py:487] saved checkpoint to /data/model_checkpoints/ckpt-56250.
+I1008 19:09:36.078121 140099672749888 controller.py:277]  eval | step:  56250 | running 25 steps of evaluation...
+I1008 19:09:56.835057 140099672749888 controller.py:290]  eval | step:  56250 | eval time:   20.8 sec | output: {'accuracy': 0.5353125, 'top_5_accuracy': 0.69, 'validation_loss': 4.156896}
+I1008 19:09:56.855985 140099672749888 train_lib.py:138] Number of trainable params in model: 25.612201 Millions.
+I1008 19:09:56.868951 140099672749888 train_utils.py:312] Saving gin configurations to /data/model_checkpoints/operative_config.train_and_eval.gin
+     'training_loss': 3.0421991}
+saved checkpoint to /data/model_checkpoints/ckpt-55000.
+ eval | step:  55000 | running 25 steps of evaluation...
+ eval | step:  55000 | eval time:   21.8 sec | output: 
+    {'accuracy': 0.53828126,
+     'top_5_accuracy': 0.6890625,
+     'validation_loss': 4.165454}
+train | step:  55000 | training until step 55625...
+train | step:  55625 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.62105626,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.8271313,
+     'training_loss': 3.0459292}
+saved checkpoint to /data/model_checkpoints/ckpt-55625.
+ eval | step:  55625 | running 25 steps of evaluation...
+ eval | step:  55625 | eval time:   23.2 sec | output: 
+    {'accuracy': 0.5360938,
+     'top_5_accuracy': 0.6896875,
+     'validation_loss': 4.167642}
+train | step:  55625 | training until step 56250...
+train | step:  56250 | steps/sec:    2.3 | output: 
+    {'accuracy': 0.6233375,
+     'learning_rate': 0.0008,
+     'top_5_accuracy': 0.82771873,
+     'training_loss': 3.0428004}
+saved checkpoint to /data/model_checkpoints/ckpt-56250.
+ eval | step:  56250 | running 25 steps of evaluation...
+ eval | step:  56250 | eval time:   20.8 sec | output: {'accuracy': 0.5353125, 'top_5_accuracy': 0.69, 'validation_loss': 4.156896}

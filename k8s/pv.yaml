@@ -4,14 +4,16 @@ metadata:
   name: example-pv
 spec:
   capacity:
-    storage: 32M
+    storage: 314G
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
   local:
-    path: /tmp/data
+    path: /disk1/
+  nodeSelector:
+
   nodeAffinity:
     required:
       nodeSelectorTerms:
