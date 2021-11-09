@@ -17,3 +17,4 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: dockerfiles/tf-resnet50/Dockerfile
+        context: dockerfiles/tf-resnet50/
