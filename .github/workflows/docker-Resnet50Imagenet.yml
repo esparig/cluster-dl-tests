@@ -16,4 +16,4 @@ jobs:
         name: esparig/TF-Resnet50-Imagenet
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: dockerfiles/Dockerfile-Resnet50-Imagenet
+        dockerfile: dockerfiles/tf-resnet50/Dockerfile-Resnet50-Imagenet
