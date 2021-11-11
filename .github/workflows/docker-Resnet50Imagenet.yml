@@ -1,6 +1,9 @@
 name: Docker Image CI Resnet50 Imagenet
 
-on: [push]
+on:
+  push:
+    paths:
+    - 'dockerfiles/tf-resnet50/**'
 
 jobs:
 
