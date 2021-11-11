@@ -15,6 +15,6 @@ ENV MODEL_DIR=/data/model_checkpoints
 ENV IMAGE_CLASSIFICATION=/usr/local/lib/python3.6/dist-packages/official/vision/beta
 ENV EXPERIMENT=/data/imagenet/experiment
 
-COPY custom.yaml ${EXPERIMENT}/imagenet_resnet50_gpu_custom.yaml
+COPY custom.yaml /data/imagenet/experiment/imagenet_resnet50_gpu_custom.yaml
 
 CMD ["python3", "${IMAGE_CLASSIFICATION}/train.py --experiment=resnet_imagenet --config_file=${EXPERIMENT}/imagenet_resnet50_gpu_custom.yaml --mode=train_and_eval --model_dir=${MODEL_DIR} --params_override='runtime.num_gpus=1'"]
