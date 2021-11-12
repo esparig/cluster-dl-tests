@@ -53,6 +53,12 @@ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.li
 sudo apt-get update
 sudo apt install -y nvidia-container-toolkit
 ```
+
+[Optional] Since, there is a Github Action activated for this container, you can run it without building it:
+```
+sudo docker run -d --rm --gpus all --net host --cap-add SYS_ADMIN esparig/dcgm-exporter:latest
+```
+
 Create Dockerfile to use my own csv, and build it:
 ```
 sudo docker build . -t dcgm-exporter
