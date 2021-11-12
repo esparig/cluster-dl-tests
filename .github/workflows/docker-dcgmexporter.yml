@@ -1,0 +1,23 @@
+name: Docker Image CI Nvidia DCGM-Exporter
+
+on:
+  push:
+    paths:
+    - 'dockerfiles/dcgmexporter/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: esparig/dcgmexporter
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: dockerfiles/dcgmexporter/Dockerfile
+        context: dockerfiles/dcgmexporter
