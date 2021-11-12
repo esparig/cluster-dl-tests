@@ -12,6 +12,6 @@ RUN pip install tf-models-official==2.6.0
 
 COPY custom.yaml /data/imagenet/experiment/imagenet_resnet50_gpu_custom.yaml
 
-CMD ["python3", "/usr/local/lib/python3.6/dist-packages/official/vision/beta/train.py \
+ENTRYPOINT ["python3", "/usr/local/lib/python3.6/dist-packages/official/vision/beta/train.py \
 --experiment=resnet_imagenet --config_file=/data/imagenet/experiment/imagenet_resnet50_gpu_custom.yaml --mode=train_and_eval \ 
 --model_dir=/data/model_checkpoints --params_override='runtime.num_gpus=1'"]
