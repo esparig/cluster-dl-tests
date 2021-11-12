@@ -1,0 +1,12 @@
+# A scrape configuration scraping a Node Exporter and the Prometheus server
+# itself.
+scrape_configs:
+  # Scrape Prometheus itself every 10 seconds.
+  - job_name: 'dcgm-exporter'
+    scrape_interval: 10s
+    static_configs:
+    - targets: ['localhost:9400']
+  - job_name: 'node-exporter'
+    scrape_interval: 10s
+    static_configs:
+    - targets: ['localhost:9100']
