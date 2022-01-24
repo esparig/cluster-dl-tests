@@ -81,7 +81,7 @@ def parse_arguments():
                         help='Directory to save checkpoints')
     parser.add_argument('--mem_limit', type=int,
                         help='Memory allocation in GPU')
-    parser.add_argument('--multi_gpu', help='Create two virtual GPUs')
+    parser.add_argument('--multi_gpu', action='store_true', help='Create two virtual GPUs')
 
     print("Parsing arguments...")
     args = parser.parse_args()
