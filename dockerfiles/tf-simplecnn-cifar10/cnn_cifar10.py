@@ -223,7 +223,7 @@ def cnn_cifar10(batch_size: int, epochs: int, checkpoint_directory: str, last_ep
 
     print(test_acc)
 
-def parallel_run(batch_size: int, epochs: int, device: str, verbose: int):
+def parallel_run(batch_size: int, epochs: int, verbose: int):
 
     logical_gpus = tf.config.list_logical_devices('GPU')
     
@@ -235,11 +235,11 @@ def parallel_run(batch_size: int, epochs: int, device: str, verbose: int):
         try:
             with tf.device(d):
                 print(f'Executing on device {d}')
-                p.append(multiprocessing.Process(target=cnn_cifar10), args=(batch_size, epochs, None, None, verbose,))
+                p.append(multiprocessing.Process(target=cnn_cifar10, args=(batch_size, epochs, None, None, verbose,)))
                 p[-1].start()
                 p[-1].join()
-        except:
-            print('Error while executing on device {d}.')
+        except Exception as e:
+            print(f'Error while executing on device {d}: {e}')
             time.sleep(2)
 
     finish = time.perf_counter()
@@ -253,7 +253,7 @@ def run():
         cnn_cifar10_model(True)
     if multi_gpu:
         virtualize_gpus(mem_limit)
-        parallel_run()
+        parallel_run(batch_size, epochs, 2)
     else:
         if mem_limit:
             limit_gpu_memory(mem_limit)
