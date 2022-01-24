@@ -9,6 +9,8 @@ RUN python3 -m pip install --upgrade pip
 
 RUN pip install matplotlib
 
-COPY cnn_simple.py cnn_simple.py 
+COPY cnn_cifar10.py cnn_cifar10.py
+COPY 20220124_test.sh 20220124_test.sh
+RUN chmod +x 20220124_test.sh
 
-CMD ["python3", "cnn_simple.py", "--batch_size=64", "--epochs=25", "--ckpt_dir=/data/ckpt"]
+CMD exec ./20220124_test.sh
