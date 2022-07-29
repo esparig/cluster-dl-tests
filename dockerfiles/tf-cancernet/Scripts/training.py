@@ -7,18 +7,60 @@ from pyimagesearch import paths
 import argparse
 import os
 
+def parse_arguments():            
+    parser = argparse.ArgumentParser(description='Train the Cancernet model')
+    #parser.add_argument('--model_summary', help='Shows model summary')
+    parser.add_argument('--batch_size', default=32, type=int,
+                        help='Batch size (default: 128)')
+    parser.add_argument('--epochs', default=1, type=int,
+                        help='number of training epochs (default: 10)')
+    # parser.add_argument('--ckpt_dir', 
+    #                     help='Directory to save checkpoints')
+    parser.add_argument('--lr', default=1e-2, type=float,
+                        help='Learning rate')
+    parser.add_argument("-s", "--save", type=str, default="my_model.h5",
+	help="path to save the model in HD5 format")
+
+    print("Parsing arguments...")
+    args = parser.parse_args()
+
+    batch_size = args.batch_size
+    print("Batch size set to: " + str(batch_size))
+
+    epochs = args.epochs
+    print("Num. epochs set to: " + str(epochs))
+
+    lr = args.lr
+    print("Learning rate set to: " + str(lr))
+
+    path_model = args.save
+    print("Path to save the model: " + path_model)
+
+    # checkpoint_directory = None
+    # last_epoch = None
+    # if args.ckpt_dir:
+    #     if os.path.isdir(args.ckpt_dir):
+    #         checkpoint_directory = args.ckpt_dir
+    #         print("Checkpoint directory set to: " + checkpoint_directory)
+    #         last_epoch = get_last_epoch(checkpoint_directory)
+    #         if (last_epoch):
+    #             print("Last epoch: "+  str(last_epoch))
+    #     else:
+    #         print("Checkpoint directory doesn't exist! Continuing without checkpointing...")
+
+    return batch_size, epochs, lr, path_model
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-s", "--save", type=str, default="my_model.h5",
 	help="path to save the model in HD5 format")
 args = vars(ap.parse_args())
-
+batch_size, epochs, lr, path_model = parse_arguments()
 # initialize our number of epochs, initial learning rate, and batch
 # size
-NUM_EPOCHS = 1
-INIT_LR = 1e-2
-BS = 32
+NUM_EPOCHS = epochs
+INIT_LR = lr
+BS = batch_size
 
 # Determine the total number of image paths in training and validation directories
 trainPaths = list(paths.list_images(config.TRAIN_PATH))
@@ -87,4 +129,4 @@ H = model.fit(
 
 model.summary()
 
-model.save(args["save"])
+model.save(path_model)
