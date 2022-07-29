@@ -51,10 +51,7 @@ def parse_arguments():
     return batch_size, epochs, lr, path_model
 
 # construct the argument parser and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-s", "--save", type=str, default="my_model.h5",
-	help="path to save the model in HD5 format")
-args = vars(ap.parse_args())
+
 batch_size, epochs, lr, path_model = parse_arguments()
 # initialize our number of epochs, initial learning rate, and batch
 # size
