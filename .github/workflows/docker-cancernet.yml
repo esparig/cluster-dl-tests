@@ -1,0 +1,23 @@
+name: Docker Image CI Cancernet IDC
+
+on:
+  push:
+    paths:
+    - 'dockerfiles/tf-cancernet/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@v4
+      with:
+        name: esparig/TF-Cancernet
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: dockerfiles/tf-cancernet/Dockerfile
+        context: dockerfiles/tf-cancernet/
