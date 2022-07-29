@@ -10,4 +10,4 @@ RUN python3 -m pip install --upgrade pip
 
 COPY  Scripts .
 
-CMD ["python", "Scripts/training.py"]
+# CMD ["python", "training.py"]
