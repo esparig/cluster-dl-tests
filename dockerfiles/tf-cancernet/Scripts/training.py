@@ -131,6 +131,15 @@ def run():
         shuffle=False,
         batch_size=batch_size)
 
+    # initialize the test generator
+    test_gen = val_data_augmentator.flow_from_directory(
+        config.TEST_PATH,
+        class_mode="categorical",
+        target_size=(48, 48),
+        color_mode="rgb",
+        shuffle=False,
+        batch_size=batch_size)
+
     # initialize our CancerNet model and compile it
     model = CancerNet.build(width=48, height=48, depth=3,
                             classes=2)
@@ -152,7 +161,7 @@ def run():
     model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
 
     # fit the model
-    model.fit(
+    history = model.fit(
         x=training_gen,
         steps_per_epoch=total_train // batch_size,
         validation_data=val_gen,
@@ -160,6 +169,9 @@ def run():
         callbacks=[callback],
         class_weight=class_weight,
         epochs=epochs)
+
+    results = model.evaluate(x =test_gen)
+    print("Evaluation of the model:\n" + results)
 
 
 if __name__ == "__main__":
