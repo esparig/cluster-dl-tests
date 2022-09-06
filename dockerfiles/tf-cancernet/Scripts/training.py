@@ -171,7 +171,7 @@ def run():
         epochs=epochs)
 
     results = model.evaluate(x =test_gen)
-    print("Evaluation of the model:\n" + results)
+    print("Evaluation of the model: ", results)
 
 
 if __name__ == "__main__":
