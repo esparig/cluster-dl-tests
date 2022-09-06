@@ -141,7 +141,7 @@ def run():
     callback = EarlyStopping(
         monitor='val_loss',
         min_delta=0,
-        patience=0,
+        patience=3,
         verbose=0,
         mode='auto',
         baseline=None,
