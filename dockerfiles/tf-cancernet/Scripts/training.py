@@ -170,8 +170,8 @@ def run():
         class_weight=class_weight,
         epochs=epochs)
 
-    results = model.evaluate(x =test_gen)
-    print("Evaluation of the model: ", results)
+    results = model.evaluate(x=test_gen)
+    print("Evaluation of the model (test loss, test acc): ", results)
 
 
 if __name__ == "__main__":
