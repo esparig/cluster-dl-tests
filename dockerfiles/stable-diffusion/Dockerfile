@@ -2,7 +2,7 @@
 # Instructions in https://github.com/cmdr2/stable-diffusion-ui
 # 20220907 - Estibaliz Parcero
 
-FROM ubuntu:20:04
+FROM ubuntu:20.04
 
 COPY https://github.com/cmdr2/stable-diffusion-ui/releases/download/v2.05/stable-diffusion-ui-linux.tar.xz stable-diffusion-ui-linux.tar.xz
 
