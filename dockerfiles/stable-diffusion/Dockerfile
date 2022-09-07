@@ -4,7 +4,7 @@
 
 FROM ubuntu:20.04
 
-COPY https://github.com/cmdr2/stable-diffusion-ui/releases/download/v2.05/stable-diffusion-ui-linux.tar.xz stable-diffusion-ui-linux.tar.xz
+COPY https://github.com/cmdr2/stable-diffusion-ui/releases/download/v2.05/stable-diffusion-ui-linux.tar.xz /
 
 RUN tar -xf stable-diffusion-ui-linux.tar.xz  
 
