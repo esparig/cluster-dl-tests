@@ -8,7 +8,7 @@ COPY https://github.com/cmdr2/stable-diffusion-ui/releases/download/v2.05/stable
 
 RUN tar -xf stable-diffusion-ui-linux.tar.xz  
 
-RUN cd stable-diffusion-ui-linux && ./start.sh
+# RUN cd stable-diffusion-ui-linux && ./start.sh
 
 # How to run this docker container: 
-# docker run... 
+# docker run -it esparig/stable-diffusion ./stable-diffusion-ui-linux/start.sh

@@ -16,7 +16,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
-        name: esparig/StableDiffusion
+        name: esparig/stable-diffusion
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: dockerfiles/stable-diffusion/Dockerfile
