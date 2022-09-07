@@ -1,0 +1,23 @@
+name: Docker Image CI Stable Diffusion
+
+on:
+  push:
+    paths:
+    - 'dockerfiles/stable-diffusion/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@v4
+      with:
+        name: esparig/StableDiffusion
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: dockerfiles/stable-diffusion/Dockerfile
+        context: dockerfiles/stable-diffusion/
