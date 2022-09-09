@@ -6,10 +6,8 @@ Python script to train the cancernet model.
 import argparse
 import os
 
-from tensorflow.keras.callbacks import EarlyStopping
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.optimizers import Adagrad
-from tensorflow.keras.utils import to_categorical
+import tensorflow as tf
+
 from pyimagesearch.cancernet import CancerNet
 from pyimagesearch import config
 from pyimagesearch import paths
@@ -67,7 +65,7 @@ def get_train_labels():
     Get categorical train labels from paths"""
 
     train_paths = list(paths.list_images(config.TRAIN_PATH))
-    train_labels = to_categorical([int(p.split(os.path.sep)[-2]) for p in train_paths])
+    train_labels = tf.keras.utils.to_categorical([int(p.split(os.path.sep)[-2]) for p in train_paths])
 
     return train_labels, len(train_paths)
 
@@ -99,7 +97,7 @@ def run():
     class_weight = get_class_weight(train_labels)
 
     # Initialize the training data augmentation object
-    training_data_augmentator = ImageDataGenerator(
+    training_data_augmentator = tf.keras.preprocessing.image.ImageDataGenerator(
         rescale=1/255.0,
         rotation_range=20,
         zoom_range=0.05,
@@ -111,7 +109,7 @@ def run():
         fill_mode="nearest")
 
     # initialize the validation data augmentation object
-    val_data_augmentator = ImageDataGenerator(rescale=1/255.0)
+    val_data_augmentator = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1/255.0)
 
     # initialize the training generator
     training_gen = training_data_augmentator.flow_from_directory(
@@ -147,7 +145,7 @@ def run():
 
     model.save(path_model)
 
-    callback = EarlyStopping(
+    callback = tf.keras.callbacks.EarlyStopping(
         monitor='val_loss',
         min_delta=0,
         patience=3,
@@ -156,7 +154,7 @@ def run():
         baseline=None,
         restore_best_weights=False
     )
-    opt = Adagrad(learning_rate=learning_rate, decay=learning_rate/epochs)
+    opt = tf.keras.optimizers.Adagrad(learning_rate=learning_rate, decay=learning_rate/epochs)
 
     model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
 
