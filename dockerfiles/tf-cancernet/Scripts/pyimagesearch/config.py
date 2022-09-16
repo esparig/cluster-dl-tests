@@ -18,3 +18,4 @@ TRAIN_SPLIT = 0.8
 VAL_SPLIT = 0.1
 CKPY_PATH = "/data/breast-histopathology/ckpt"
 #CKPY_PATH = "/tmp/ckpt"
+TENSORBOARD_PATH="/tensorboard"
