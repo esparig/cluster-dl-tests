@@ -205,7 +205,7 @@ def run():
     callbacks =  []
     
     if tensorboard:
-        log_dir = config.TENSORBOARD_PATH +"/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        log_dir = config.TENSORBOARD_PATH +"/" + datetime.now().strftime("%Y%m%d-%H%M%S")
         callbacks.append(tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1))
     
     if earlystopping:
