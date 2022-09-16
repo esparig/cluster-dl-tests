@@ -46,6 +46,8 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Train the Cancernet model')
     #parser.add_argument('--model_summary', help='Shows model summary')
     parser.add_argument('--ckpt', action='store_true', help='Enable checkpointing')
+    parser.add_argument('--ES', action='store_true', help='Enable EarlyStopping')
+    parser.add_argument('--TB', action='store_true', help='Enable TensorBoard')
     parser.add_argument('--batch_size', default=32, type=int,
                         help='Batch size (default: 128)')
     parser.add_argument('--epochs', default=1, type=int,
@@ -82,7 +84,7 @@ def parse_arguments():
         else:
             print("Checkpoint directory doesn't exist! Continuing without checkpointing...")
 
-    return batch_size, epochs, learning_rate, path_model, checkpoint_directory, last_epoch
+    return batch_size, epochs, learning_rate, path_model, checkpoint_directory, last_epoch, args.ES, args.TB
 
 def get_last_epoch(checkpoint_directory):
     """get_last_epoch
@@ -142,7 +144,7 @@ def run():
     Train model according to parsed arguments."""
 
     # construct the argument parser and parse the arguments
-    batch_size, epochs, learning_rate, path_model, checkpoint_directory, last_epoch = parse_arguments()
+    batch_size, epochs, learning_rate, path_model, checkpoint_directory, last_epoch, earlystopping, tensorboard = parse_arguments()
 
     # Determine the total number of image paths in validation directories
     total_val = len(list(paths.list_images(config.VAL_PATH)))
@@ -195,22 +197,27 @@ def run():
         batch_size=batch_size)
 
     # initialize our CancerNet model and compile it
-    model = CancerNet.build(width=48, height=48, depth=3,
-                            classes=2)
+    model = CancerNet.build(width=48, height=48, depth=3, classes=2)
     model.summary()
 
     model.save(path_model)
 
     callbacks =  []
-    callbacks.append(tf.keras.callbacks.EarlyStopping(
-        monitor='val_loss',
-        min_delta=0,
-        patience=3,
-        verbose=0,
-        mode='auto',
-        baseline=None,
-        restore_best_weights=False)
-    )
+    
+    if tensorboard:
+        log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        callbacks.append(tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1))
+    
+    if earlystopping:
+        callbacks.append(tf.keras.callbacks.EarlyStopping(
+            monitor='val_loss',
+            min_delta=0,
+            patience=3,
+            verbose=0,
+            mode='auto',
+            baseline=None,
+            restore_best_weights=False)
+        )
     
     opt = tf.keras.optimizers.Adagrad(learning_rate=learning_rate, decay=learning_rate/epochs) if epochs > 0 else "RMSprop"
 
@@ -241,7 +248,6 @@ def run():
         last_epoch = 0
         
     # fit the model
-    
     history = fit_cancernet(model, training_gen, batch_size, val_gen, callbacks, class_weight, epochs, last_epoch)
 
     results = model.evaluate(x=test_gen)
