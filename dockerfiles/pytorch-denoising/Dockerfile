@@ -3,7 +3,7 @@
 #
 # 20221021 - Estibaliz Parcero
 
-# https://github.com/pytorch/pytorch
+# From https://github.com/pytorch/pytorch
 FROM pytorch/pytorch:latest
 
 COPY  denoising.py .

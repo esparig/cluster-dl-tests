@@ -1,8 +1,10 @@
 from datetime import datetime
 from functools import wraps
 import time
+
 import torch
 import numpy as np
+
 from torchvision import datasets
 import torchvision.transforms as transforms
 import torch.nn as nn
