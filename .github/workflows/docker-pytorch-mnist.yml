@@ -1,0 +1,23 @@
+name: Docker Image CI Pytorch Denoising
+
+on:
+  push:
+    paths:
+    - 'dockerfiles/pytorch-classify-mnist/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@v4
+      with:
+        name: esparig/pytorch-mnist
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: dockerfiles/pytorch-classify-mnist/Dockerfile
+        context: dockerfiles/pytorch-classify-mnist/
