@@ -144,7 +144,7 @@ def run():
     val_loader = DataLoader(val_ds, batch_size*2, num_workers=4, pin_memory=True)
     
     input_size = 784
-    hidden_size = 32 # you can change this
+    hidden_size = 128 # you can change this
     num_classes = 10
     
     model = MnistModel(input_size, hidden_size=32, out_size=num_classes)
@@ -184,10 +184,7 @@ def run():
     history = [evaluate(model, val_loader)]
     print(history)
     
-    history += fit(5, 0.5, model, train_loader, val_loader)
-    print(history)
-    
-    history += fit(5, 0.1, model, train_loader, val_loader)
+    history += fit(100, 0.1, model, train_loader, val_loader)
     print(history)
 
 if __name__ == "__main__":
