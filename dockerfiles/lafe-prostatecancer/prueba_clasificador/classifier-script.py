@@ -81,7 +81,7 @@ print(len(y_val))
 train_loader = tf.data.Dataset.from_tensor_slices((x_train, y_train))
 validation_loader = tf.data.Dataset.from_tensor_slices((x_val, y_val))
 
-batch_size = 4
+batch_size = 1
 
 train_dataset = (
     train_loader.shuffle(len(x_train))
