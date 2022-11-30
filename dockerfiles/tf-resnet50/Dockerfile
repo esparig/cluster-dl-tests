@@ -10,8 +10,8 @@ RUN python3 -m pip install --upgrade pip
 # https://github.com/tensorflow/models/tree/master/official
 RUN pip install tf-models-official==2.6.0
 
-COPY custom.yaml /data/imagenet/experiment/imagenet_resnet50_gpu_custom.yaml
+# COPY custom.yaml /data/imagenet/experiment/imagenet_resnet50_gpu_custom.yaml
 
-CMD ["python3", "/usr/local/lib/python3.6/dist-packages/official/vision/beta/train.py", \
-"--experiment=resnet_imagenet", "--config_file=/data/imagenet/experiment/imagenet_resnet50_gpu_custom.yaml", \
-"--mode=train_and_eval", "--model_dir=/data/model_checkpoints"]
+# CMD ["python3", "/usr/local/lib/python3.6/dist-packages/official/vision/beta/train.py", \
+# "--experiment=resnet_imagenet", "--config_file=/data/imagenet/experiment/imagenet_resnet50_gpu_custom.yaml", \
+# "--mode=train_and_eval", "--model_dir=/data/model_checkpoints"]
