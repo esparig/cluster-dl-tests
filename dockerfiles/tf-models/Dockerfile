@@ -10,5 +10,3 @@ RUN python3 -m pip install --upgrade pip
 RUN git clone https://github.com/tensorflow/models.git
 RUN export PYTHONPATH=$PYTHONPATH:/models
 RUN pip3 install --user -r models/official/requirements.txt
-
-CMD echo "Welcome to TF Model Garden"
